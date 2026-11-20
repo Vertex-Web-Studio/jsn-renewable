@@ -3,30 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSN Renewable Energy - Solar Projects in Maharashtra</title>
-    <!-- Favicon & Tab Bar Icon -->
-    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
-    <link rel="shortcut icon" href="../assets/logo.svg">
+    <title>JSN Renewable Energy - Maharashtra Solar EPC & Housing Society Projects</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span class="badge-discom">
+                        <i data-lucide="shield-check" style="width:14px; height:14px;"></i>
+                        DISCOM Approved Solar EPC
+                    </span>
+                    <span style="font-size: 12px; color: #CBD5E1;" class="hide-mobile">Serving Haryana, Delhi NCR, UP, Rajasthan & Maharashtra</span>
+                </div>
+                <div class="top-bar-info">
+                    <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
+                    <a href="mailto:info@jsnrenewable.com" class="hide-mobile"><i data-lucide="mail" style="width:14px; height:14px;"></i> info@jsnrenewable.com</a>
+                    <a href="https://wa.me/919289044454" target="_blank" style="color: var(--orange); font-weight:700;"><i data-lucide="message-square" style="width:14px; height:14px;"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVBAR -->
     <header class="navbar">
         <div class="container">
             <div class="navbar-flex">
-                <a href="../index.html" class="brand-logo">
-                    <img src="../assets/logo.svg" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                <a href="/index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
                 </a>
-                <a href="../contact/index.html" class="btn btn-orange">Maharashtra Audit</a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item">
+                        <a href="/solutions/index.html" class="nav-link">
+                            Solutions <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solutions/commercial-solar.html" class="dropdown-link">Commercial Solar</a></li>
+                            <li><a href="/solutions/industrial-solar.html" class="dropdown-link">Industrial Solar Sheds</a></li>
+                            <li><a href="/solutions/offices-malls.html" class="dropdown-link">Offices & Malls</a></li>
+                            <li><a href="/solutions/government-psu.html" class="dropdown-link">Government & PSU</a></li>
+                            <li><a href="/solutions/hospitals.html" class="dropdown-link">Hospitals</a></li>
+                            <li><a href="/solutions/housing-societies.html" class="dropdown-link">Housing Societies</a></li>
+                            <li><a href="/solutions/schools-institutions.html" class="dropdown-link">Schools & Institutions</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/systems/index.html" class="nav-link">
+                            Systems <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/systems/on-grid-solar.html" class="dropdown-link">On-Grid Solar</a></li>
+                            <li><a href="/systems/off-grid-solar.html" class="dropdown-link">Off-Grid Solar</a></li>
+                            <li><a href="/systems/hybrid-solar.html" class="dropdown-link">Hybrid Solar</a></li>
+                            <li><a href="/systems/ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/services/index.html" class="nav-link">
+                            Services <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/solar-epc.html" class="dropdown-link">Solar EPC</a></li>
+                            <li><a href="/services/consultation-feasibility.html" class="dropdown-link">Consultation & Feasibility</a></li>
+                            <li><a href="/services/net-metering.html" class="dropdown-link">Net Metering & DISCOM</a></li>
+                            <li><a href="/services/om-amc.html" class="dropdown-link">O&M and AMC</a></li>
+                            <li><a href="/services/capex-opex.html" class="dropdown-link">CAPEX & OPEX / RESCO</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link">Projects</a></li>
+
+                    <li class="nav-item">
+                        <a href="/government-subsidy/index.html" class="nav-link">
+                            Subsidy <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/government-subsidy/pm-surya-ghar.html" class="dropdown-link">PM Surya Ghar</a></li>
+                            <li><a href="/government-subsidy/pm-kusum.html" class="dropdown-link">PM-KUSUM Ground Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/locations/index.html" class="nav-link active">
+                            Locations <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/locations/delhi-ncr.html" class="dropdown-link">Delhi NCR</a></li>
+                            <li><a href="/locations/ghaziabad.html" class="dropdown-link">Ghaziabad (HQ)</a></li>
+                            <li><a href="/locations/noida.html" class="dropdown-link">Noida & Greater Noida</a></li>
+                            <li><a href="/locations/haryana.html" class="dropdown-link">Haryana</a></li>
+                            <li><a href="/locations/rajasthan.html" class="dropdown-link">Rajasthan</a></li>
+                            <li><a href="/locations/maharashtra.html" class="dropdown-link active">Maharashtra</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/insights/index.html" class="nav-link">Insights</a></li>
+                    <li class="nav-item"><a href="/about/index.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
             </div>
         </div>
     </header>
 
     <section class="page-banner">
         <div class="container">
-            <h1>Solar Projects in Maharashtra</h1>
-            <p>Commissioned 325 kW housing society RWA rooftop solar plants and commercial net-metered installations across Maharashtra.</p>
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Locations / Maharashtra</div>
+            <h1>Maharashtra Rooftop & Housing Society Solar Solutions</h1>
+            <p>Commissioned 325 kW RWA Residential Society Solar Installation in Maharashtra under MSEDCL Net-Metering Guidelines.</p>
         </div>
     </section>
 
@@ -34,18 +138,137 @@
         <div class="container">
             <div class="two-col-grid">
                 <div>
-                    <span class="eyebrow-text">MAHARASHTRA FOOTPRINT</span>
-                    <h2>325 kW Multi-Tower Housing Society Rooftop Solar</h2>
-                    <p>Executing large-scale housing society rooftop solar plants under MSEDCL net metering, powering common elevators, water pumps, and clubhouse facilities to lower society maintenance fees.</p>
+                    <span class="eyebrow-text">COMMUNITY SOLAR POWER</span>
+                    <h2>325 kW RWA Housing Society Project in Maharashtra</h2>
+                    <p>JSN Renewable Energy Private Limited engineered and delivered a major 325 kW rooftop solar power asset for a residential housing society complex in Maharashtra. Designed under MSEDCL net-metering regulations, the system offsets common facility electricity loads including high-speed elevators, water pumping stations, and campus perimeter lighting.</p>
+
+                    <div class="about-features" style="margin-top:20px;">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i data-lucide="check" style="width:16px;"></i></div>
+                            <div class="feature-text">
+                                <h4>Common Area Electricity Savings</h4>
+                                <p>Saves the society up to 70% on monthly maintenance electricity expenses with payback achieved in under 3.5 years.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon"><i data-lucide="check" style="width:16px;"></i></div>
+                            <div class="feature-text">
+                                <h4>PM Surya Ghar RWA Subsidy Support</h4>
+                                <p>Full paperwork management for ₹18,000 per kW common area subsidy under central MNRE schemes.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px;">
-                    <h3>MSEDCL Net Metering Audit</h3>
-                    <p>Schedule a technical survey for your society or commercial property in Maharashtra.</p>
-                    <a href="../contact/index.html" class="btn btn-primary" style="width:100%;">Schedule Site Audit</a>
+
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md);">
+                    <h3 style="margin-bottom: 16px; color: var(--primary-dark);">Request RWA Society Audit</h3>
+                    <p style="font-size:13.5px;">Schedule a presentation for your Society Managing Committee or RWA Board.</p>
+                    <a href="/contact/index.html" class="btn btn-orange" style="width:100%;">Book Housing Society Audit</a>
                 </div>
             </div>
         </div>
     </section>
-    <script>lucide.createIcons();</script>
+
+    <!-- EXECUTED PROJECT CARD -->
+    <section class="section-padding section-bg-alt">
+        <div class="container">
+            <div class="section-heading text-center">
+                <span class="eyebrow-text">COMMISSIONED ASSET</span>
+                <h2>Maharashtra Project Portfolio</h2>
+            </div>
+
+            <div class="projects-grid" style="max-width:700px; margin:0 auto;">
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="/assets/projects/industrial-shed-2.jpg" alt="325 kW Maharashtra RWA" class="project-img">
+                        <span class="project-tag">Housing Society Solar</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">CHS Residential Complex, Maharashtra</div>
+                        <h3>325 kW RWA Housing Society Solar Plant</h3>
+                        <p>Multi-tower residential rooftop solar installation delivering zero-net electricity costs for common utilities under MSEDCL.</p>
+                        <div class="project-capacity">
+                            <span>325 kW</span>
+                            <a href="/projects/index.html" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <div style="margin-bottom:12px;">
+                        <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                    </div>
+                    <p>
+                        JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.
+                    </p>
+                    <div style="font-weight: 700; color: var(--orange); margin-top: 10px; font-size: 12px; letter-spacing:1px; text-transform:uppercase;">
+                        A NEW WAY TO POWER
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="/solutions/commercial-solar.html">Commercial Solar</a></li>
+                        <li><a href="/solutions/industrial-solar.html">Industrial Solar Sheds</a></li>
+                        <li><a href="/solutions/government-psu.html">Government & PSU</a></li>
+                        <li><a href="/solutions/housing-societies.html">Housing Societies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Services & Subsidy</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/solar-epc.html">Solar EPC Contractor</a></li>
+                        <li><a href="/services/net-metering.html">Net Metering & DISCOM</a></li>
+                        <li><a href="/government-subsidy/pm-surya-ghar.html">PM Surya Ghar Yojana</a></li>
+                        <li><a href="/government-subsidy/pm-kusum.html">PM-KUSUM Ground Solar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Key Locations</h5>
+                    <ul class="footer-links">
+                        <li><a href="/locations/delhi-ncr.html">Delhi NCR</a></li>
+                        <li><a href="/locations/ghaziabad.html">Ghaziabad (HQ)</a></li>
+                        <li><a href="/locations/noida.html">Noida & Greater Noida</a></li>
+                        <li><a href="/locations/haryana.html">Haryana (Bhiwani/Jhajjar)</a></li>
+                        <li><a href="/locations/rajasthan.html">Rajasthan (Kapurisar/Bikaner)</a></li>
+                        <li><a href="/locations/maharashtra.html">Maharashtra</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 JSN Renewable Energy Private Limited. All rights reserved.</div>
+                <div class="footer-legal-links">
+                    <a href="/contact/index.html">Privacy Policy</a>
+                    <a href="/contact/index.html">Terms & Conditions</a>
+                    <a href="/insights/index.html">DISCOM Approvals Guide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

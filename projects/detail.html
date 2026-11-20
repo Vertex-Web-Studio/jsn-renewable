@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Case Study & Technical Specs - JSN Renewable Energy</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span class="badge-discom">
+                        <i data-lucide="shield-check" style="width:14px; height:14px;"></i>
+                        DISCOM Approved Solar EPC
+                    </span>
+                    <span style="font-size: 12px; color: #CBD5E1;" class="hide-mobile">Serving Haryana, Delhi NCR, UP, Rajasthan & Maharashtra</span>
+                </div>
+                <div class="top-bar-info">
+                    <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
+                    <a href="mailto:info@jsnrenewable.com" class="hide-mobile"><i data-lucide="mail" style="width:14px; height:14px;"></i> info@jsnrenewable.com</a>
+                    <a href="https://wa.me/919289044454" target="_blank" style="color: var(--orange); font-weight:700;"><i data-lucide="message-square" style="width:14px; height:14px;"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-flex">
+                <a href="/index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                </a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item">
+                        <a href="/solutions/index.html" class="nav-link">
+                            Solutions <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solutions/commercial-solar.html" class="dropdown-link">Commercial Solar</a></li>
+                            <li><a href="/solutions/industrial-solar.html" class="dropdown-link">Industrial Solar Sheds</a></li>
+                            <li><a href="/solutions/offices-malls.html" class="dropdown-link">Offices & Malls</a></li>
+                            <li><a href="/solutions/government-psu.html" class="dropdown-link">Government & PSU</a></li>
+                            <li><a href="/solutions/hospitals.html" class="dropdown-link">Hospitals</a></li>
+                            <li><a href="/solutions/housing-societies.html" class="dropdown-link">Housing Societies</a></li>
+                            <li><a href="/solutions/schools-institutions.html" class="dropdown-link">Schools & Institutions</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/systems/index.html" class="nav-link">
+                            Systems <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/systems/on-grid-solar.html" class="dropdown-link">On-Grid Solar</a></li>
+                            <li><a href="/systems/off-grid-solar.html" class="dropdown-link">Off-Grid Solar</a></li>
+                            <li><a href="/systems/hybrid-solar.html" class="dropdown-link">Hybrid Solar</a></li>
+                            <li><a href="/systems/ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/services/index.html" class="nav-link">
+                            Services <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/solar-epc.html" class="dropdown-link">Solar EPC</a></li>
+                            <li><a href="/services/consultation-feasibility.html" class="dropdown-link">Consultation & Feasibility</a></li>
+                            <li><a href="/services/net-metering.html" class="dropdown-link">Net Metering & DISCOM</a></li>
+                            <li><a href="/services/om-amc.html" class="dropdown-link">O&M and AMC</a></li>
+                            <li><a href="/services/capex-opex.html" class="dropdown-link">CAPEX & OPEX / RESCO</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link active">Projects</a></li>
+
+                    <li class="nav-item">
+                        <a href="/government-subsidy/index.html" class="nav-link">
+                            Subsidy <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/government-subsidy/pm-surya-ghar.html" class="dropdown-link">PM Surya Ghar</a></li>
+                            <li><a href="/government-subsidy/pm-kusum.html" class="dropdown-link">PM-KUSUM Ground Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/locations/index.html" class="nav-link">
+                            Locations <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/locations/delhi-ncr.html" class="dropdown-link">Delhi NCR</a></li>
+                            <li><a href="/locations/ghaziabad.html" class="dropdown-link">Ghaziabad (HQ)</a></li>
+                            <li><a href="/locations/noida.html" class="dropdown-link">Noida & Greater Noida</a></li>
+                            <li><a href="/locations/haryana.html" class="dropdown-link">Haryana</a></li>
+                            <li><a href="/locations/rajasthan.html" class="dropdown-link">Rajasthan</a></li>
+                            <li><a href="/locations/maharashtra.html" class="dropdown-link">Maharashtra</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/insights/index.html" class="nav-link">Insights</a></li>
+                    <li class="nav-item"><a href="/about/index.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <div class="container">
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Projects / Case Study</div>
+            <h1 id="projTitle">2.55 MW PM-KUSUM Ground Solar Plant #1</h1>
+            <p id="projSubtitle">2.55 MW &bull; Bhiwani, Haryana</p>
+        </div>
+    </section>
+
+    <!-- DYNAMIC CASE STUDY DETAIL CONTAINER -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="two-col-grid">
+                <div>
+                    <div style="margin-bottom:24px;">
+                        <img id="projHeroImg" src="/assets/projects/bhiwani-5mw-1.jpg" alt="JSN Solar Project Case Study" style="width:100%; height:400px; object-fit:cover; border-radius:var(--radius-lg); box-shadow:var(--shadow-md);">
+                    </div>
+
+                    <span class="eyebrow-text">ENGINEERING & EXECUTION HIGHLIGHTS</span>
+                    <h2 id="projHeader">Grid-Connected Utility Ground Solar Asset</h2>
+                    <p id="projDesc" style="font-size: 16px; line-height: 1.8; color: var(--text-primary);">
+                        Grid-connected MW-scale utility power plant engineered and commissioned under Component-A of federal PM-KUSUM program in Bhiwani, Haryana. The plant features ALMM listed mono-PERC bifacial solar modules, central inverters, 33kV outdoor substation, and a 25-year DISCOM Power Purchase Agreement (PPA).
+                    </p>
+
+                    <h3 style="margin-top:30px; margin-bottom:16px;">Real Project Gallery</h3>
+                    <div id="projGallery" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:16px;">
+                        <img src="/assets/projects/bhiwani-5mw-1.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:var(--radius-md);">
+                        <img src="/assets/projects/bhiwani-5mw-2.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:var(--radius-md);">
+                        <img src="/assets/projects/bhiwani-5mw-3.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:var(--radius-md);">
+                        <img src="/assets/projects/bhiwani-5mw-4.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:var(--radius-md);">
+                    </div>
+                </div>
+
+                <!-- SPECS SIDEBAR CARD -->
+                <div>
+                    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md);">
+                        <h3 style="margin-bottom: 20px; color: var(--primary-dark); border-bottom:1px solid var(--border-light); padding-bottom:10px;">Technical Specifications</h3>
+
+                        <div style="display:flex; flex-direction:column; gap:14px; font-size:14px; margin-bottom:24px;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:var(--text-secondary);">Installed Capacity:</span>
+                                <strong id="specCapacity" style="color:var(--orange); font-size:18px; font-family:var(--font-heading);">2.55 MW</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:var(--text-secondary);">Category:</span>
+                                <strong id="specCategory">PM-KUSUM Ground Solar</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:var(--text-secondary);">System Type:</span>
+                                <strong id="specSystem">Ground-Mounted Solar</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:var(--text-secondary);">Location:</span>
+                                <strong id="specLocation">Bhiwani, Haryana</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span style="color:var(--text-secondary);">DISCOM Utility:</span>
+                                <strong id="specClient">DHBVN State Grid</strong>
+                            </div>
+                        </div>
+
+                        <a href="/contact/index.html" class="btn btn-orange" style="width:100%;">Build Similar Solar Asset</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <div style="margin-bottom:12px;">
+                        <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                    </div>
+                    <p>
+                        JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.
+                    </p>
+                    <div style="font-weight: 700; color: var(--orange); margin-top: 10px; font-size: 12px; letter-spacing:1px; text-transform:uppercase;">
+                        A NEW WAY TO POWER
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="/solutions/commercial-solar.html">Commercial Solar</a></li>
+                        <li><a href="/solutions/industrial-solar.html">Industrial Solar Sheds</a></li>
+                        <li><a href="/solutions/government-psu.html">Government & PSU</a></li>
+                        <li><a href="/solutions/housing-societies.html">Housing Societies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Services & Subsidy</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/solar-epc.html">Solar EPC Contractor</a></li>
+                        <li><a href="/services/net-metering.html">Net Metering & DISCOM</a></li>
+                        <li><a href="/government-subsidy/pm-surya-ghar.html">PM Surya Ghar Yojana</a></li>
+                        <li><a href="/government-subsidy/pm-kusum.html">PM-KUSUM Ground Solar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Key Locations</h5>
+                    <ul class="footer-links">
+                        <li><a href="/locations/delhi-ncr.html">Delhi NCR</a></li>
+                        <li><a href="/locations/ghaziabad.html">Ghaziabad (HQ)</a></li>
+                        <li><a href="/locations/noida.html">Noida & Greater Noida</a></li>
+                        <li><a href="/locations/haryana.html">Haryana (Bhiwani/Jhajjar)</a></li>
+                        <li><a href="/locations/rajasthan.html">Rajasthan (Kapurisar/Bikaner)</a></li>
+                        <li><a href="/locations/maharashtra.html">Maharashtra</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 JSN Renewable Energy Private Limited. All rights reserved.</div>
+                <div class="footer-legal-links">
+                    <a href="/contact/index.html">Privacy Policy</a>
+                    <a href="/contact/index.html">Terms & Conditions</a>
+                    <a href="/insights/index.html">DISCOM Approvals Guide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE CASE STUDY DATA SWITCHER SCRIPT -->
+    <script>
+        lucide.createIcons();
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+        }
+
+        // Database of all 7 Commissioned Projects
+        const projectsData = {
+            '2-55-mw-pm-kusum-ground-solar-plant-1': {
+                title: '2.55 MW PM-KUSUM Ground Solar Plant #1',
+                subtitle: '2.55 MW • Bhiwani, Haryana',
+                header: '2.55 MW Utility Ground Solar Asset',
+                desc: 'Grid-connected MW-scale utility power plant engineered and commissioned under Component-A of federal PM-KUSUM program in Bhiwani, Haryana. The plant features ALMM listed mono-PERC bifacial solar modules, central inverters, 33kV outdoor substation, and a 25-year DISCOM Power Purchase Agreement (PPA).',
+                hero: '/assets/projects/bhiwani-5mw-1.jpg',
+                gallery: ['/assets/projects/bhiwani-5mw-1.jpg', '/assets/projects/bhiwani-5mw-2.jpg', '/assets/projects/bhiwani-5mw-3.jpg', '/assets/projects/bhiwani-5mw-4.jpg'],
+                capacity: '2.55 MW',
+                category: 'PM-KUSUM Ground Solar',
+                system: 'Ground-Mounted Solar',
+                location: 'Bhiwani, Haryana',
+                client: 'DHBVN State Grid'
+            },
+            '2-55-mw-utility-ground-solar-plant-2': {
+                title: '2.55 MW Utility Ground Solar Plant #2',
+                subtitle: '2.55 MW • Kapurisar, Bikaner, Rajasthan',
+                header: 'Desert High-Irradiance Utility Solar Farm',
+                desc: 'MW-scale utility grid power plant engineered in high irradiance Bikaner desert region under 25-year JVVNL PPA contract. Includes 33kV outdoor step-up transformer substation, anti-soiling telemetry monitoring, and high voltage grid protection.',
+                hero: '/assets/projects/bhiwani-5mw-2.jpg',
+                gallery: ['/assets/projects/bhiwani-5mw-2.jpg', '/assets/projects/bhiwani-ground-5.jpg', '/assets/projects/bhiwani-ground-6.jpg', '/assets/projects/bhiwani-ground-7.jpg'],
+                capacity: '2.55 MW',
+                category: 'PM-KUSUM Ground Solar',
+                system: 'Ground-Mounted Solar',
+                location: 'Kapurisar, Bikaner, Rajasthan',
+                client: 'JVVNL Transmission Grid'
+            },
+            '325-kw-housing-society-rooftop-plant': {
+                title: '325 kW RWA Housing Society Rooftop Plant',
+                subtitle: '325 kW • CHS Residential Complex, Maharashtra',
+                header: 'Multi-Tower Society Common Power Offset',
+                desc: 'Large-scale multi-tower residential rooftop solar setup providing clean power for common elevators, lighting, and water pumps under MSEDCL net-metering regulations. Reduces annual maintenance costs by up to 70%.',
+                hero: '/assets/projects/industrial-shed-2.jpg',
+                gallery: ['/assets/projects/industrial-shed-2.jpg', '/assets/projects/industrial-shed-3.jpg', '/assets/projects/industrial-shed-4.jpg'],
+                capacity: '325 kW',
+                category: 'Housing Society Solar',
+                system: 'On-Grid Rooftop',
+                location: 'Maharashtra',
+                client: 'Cooperative Housing Society'
+            },
+            '170-kw-industrial-shed-solar-plant': {
+                title: '170 kW Industrial Factory Shed Plant',
+                subtitle: '170 kW • Jhajjar, Haryana',
+                header: 'Corrugated Metal Roof Solar Framing',
+                desc: 'Custom non-penetrative roof structure engineering for factory shed minimizing electricity tariffs under DHBVN. Protects factory roof integrity while generating clean daytime power.',
+                hero: '/assets/projects/industrial-shed-1.jpg',
+                gallery: ['/assets/projects/industrial-shed-1.jpg', '/assets/projects/industrial-shed-2.jpg', '/assets/projects/industrial-shed-4.jpg'],
+                capacity: '170 kW',
+                category: 'Industrial Solar Shed',
+                system: 'On-Grid Solar',
+                location: 'Jhajjar, Haryana',
+                client: 'Manufacturing Unit'
+            },
+            '150-kw-on-grid-solar-plant-bulandshahr': {
+                title: '150 kW On-Grid Solar Plant',
+                subtitle: '150 kW • Bulandshahr, Uttar Pradesh',
+                header: 'Commercial Manufacturing On-Grid Asset',
+                desc: 'On-grid rooftop solar installation for industrial manufacturing unit in Bulandshahr, UP. Fully synchronized with UPPCL grid with bi-directional net-metering.',
+                hero: '/assets/projects/industrial-shed-3.jpg',
+                gallery: ['/assets/projects/industrial-shed-3.jpg', '/assets/projects/industrial-shed-1.jpg'],
+                capacity: '150 kW',
+                category: 'Commercial Solar',
+                system: 'On-Grid Solar',
+                location: 'Bulandshahr, UP',
+                client: 'Commercial Unit'
+            },
+            '60-kw-solar-power-installation': {
+                title: '60 kW RWA & Institutional Rooftop',
+                subtitle: '60 kW • Mainpuri, Uttar Pradesh',
+                header: 'Institutional High-Efficiency Mono-PERC Rooftop',
+                desc: 'High-efficiency mono-PERC rooftop solar power installation delivering zero-carbon energy independence for institutional facility in Mainpuri, UP.',
+                hero: '/assets/projects/mainpuri-60kw.jpg',
+                gallery: ['/assets/projects/mainpuri-60kw.jpg'],
+                capacity: '60 kW',
+                category: 'Institutional Solar',
+                system: 'On-Grid Rooftop',
+                location: 'Mainpuri, UP',
+                client: 'Institutional Building'
+            },
+            '40-kw-assotech-blith-rwa-rooftop-plant': {
+                title: '40 kW Assotech Blith RWA Solar Rooftop',
+                subtitle: '40 kW • Gurugram, Haryana',
+                header: 'High-Rise Residential RWA Solar Asset',
+                desc: 'High-rise residential rooftop solar installation offsetting common facility power bills under Haryana solar policy guidelines.',
+                hero: '/assets/projects/bhiwani-ground-7.jpg',
+                gallery: ['/assets/projects/bhiwani-ground-7.jpg', '/assets/projects/industrial-shed-2.jpg'],
+                capacity: '40 kW',
+                category: 'RWA Rooftop',
+                system: 'On-Grid Solar',
+                location: 'Gurugram, Haryana',
+                client: 'Assotech Blith RWA'
+            }
+        };
+
+        // Parse URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug') || '2-55-mw-pm-kusum-ground-solar-plant-1';
+        const data = projectsData[slug] || projectsData['2-55-mw-pm-kusum-ground-solar-plant-1'];
+
+        // Populate DOM elements
+        document.getElementById('projTitle').innerText = data.title;
+        document.getElementById('projSubtitle').innerText = data.subtitle;
+        document.getElementById('projHeader').innerText = data.header;
+        document.getElementById('projDesc').innerText = data.desc;
+        document.getElementById('projHeroImg').src = data.hero;
+        document.getElementById('specCapacity').innerText = data.capacity;
+        document.getElementById('specCategory').innerText = data.category;
+        document.getElementById('specSystem').innerText = data.system;
+        document.getElementById('specLocation').innerText = data.location;
+        document.getElementById('specClient').innerText = data.client;
+
+        // Render gallery
+        const gBox = document.getElementById('projGallery');
+        gBox.innerHTML = '';
+        data.gallery.forEach(img => {
+            const iEl = document.createElement('img');
+            iEl.src = img;
+            iEl.style.width = '100%';
+            iEl.style.height = '140px';
+            iEl.style.objectFit = 'cover';
+            iEl.style.borderRadius = 'var(--radius-md)';
+            gBox.appendChild(iEl);
+        });
+    </script>
+</body>
+</html>

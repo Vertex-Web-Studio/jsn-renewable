@@ -3,81 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSN Renewable Energy - Executed Projects & Case Studies</title>
-    <!-- Favicon & Tab Bar Icon -->
-    <link rel="icon" type="image/png" href="../assets/logo.png">
-    <link rel="shortcut icon" href="../assets/logo.png">
+    <title>JSN Renewable Energy - Executed Projects Track Record & Case Studies</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span class="badge-discom">
+                        <i data-lucide="shield-check" style="width:14px; height:14px;"></i>
+                        DISCOM Approved Solar EPC
+                    </span>
+                    <span style="font-size: 12px; color: #CBD5E1;" class="hide-mobile">Serving Haryana, Delhi NCR, UP, Rajasthan & Maharashtra</span>
+                </div>
+                <div class="top-bar-info">
+                    <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
+                    <a href="mailto:info@jsnrenewable.com" class="hide-mobile"><i data-lucide="mail" style="width:14px; height:14px;"></i> info@jsnrenewable.com</a>
+                    <a href="https://wa.me/919289044454" target="_blank" style="color: var(--orange); font-weight:700;"><i data-lucide="message-square" style="width:14px; height:14px;"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVBAR -->
     <header class="navbar">
         <div class="container">
             <div class="navbar-flex">
-                <a href="../index.html" class="brand-logo">
-                    <img src="../assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                <a href="/index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
                 </a>
-                <a href="../contact/index.html" class="btn btn-orange">Request Free Site Survey</a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item">
+                        <a href="/solutions/index.html" class="nav-link">
+                            Solutions <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solutions/commercial-solar.html" class="dropdown-link">Commercial Solar</a></li>
+                            <li><a href="/solutions/industrial-solar.html" class="dropdown-link">Industrial Solar Sheds</a></li>
+                            <li><a href="/solutions/offices-malls.html" class="dropdown-link">Offices & Malls</a></li>
+                            <li><a href="/solutions/government-psu.html" class="dropdown-link">Government & PSU</a></li>
+                            <li><a href="/solutions/hospitals.html" class="dropdown-link">Hospitals</a></li>
+                            <li><a href="/solutions/housing-societies.html" class="dropdown-link">Housing Societies</a></li>
+                            <li><a href="/solutions/schools-institutions.html" class="dropdown-link">Schools & Institutions</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/systems/index.html" class="nav-link">
+                            Systems <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/systems/on-grid-solar.html" class="dropdown-link">On-Grid Solar</a></li>
+                            <li><a href="/systems/off-grid-solar.html" class="dropdown-link">Off-Grid Solar</a></li>
+                            <li><a href="/systems/hybrid-solar.html" class="dropdown-link">Hybrid Solar</a></li>
+                            <li><a href="/systems/ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/services/index.html" class="nav-link">
+                            Services <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/solar-epc.html" class="dropdown-link">Solar EPC</a></li>
+                            <li><a href="/services/consultation-feasibility.html" class="dropdown-link">Consultation & Feasibility</a></li>
+                            <li><a href="/services/net-metering.html" class="dropdown-link">Net Metering & DISCOM</a></li>
+                            <li><a href="/services/om-amc.html" class="dropdown-link">O&M and AMC</a></li>
+                            <li><a href="/services/capex-opex.html" class="dropdown-link">CAPEX & OPEX / RESCO</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link active">Projects</a></li>
+
+                    <li class="nav-item">
+                        <a href="/government-subsidy/index.html" class="nav-link">
+                            Subsidy <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/government-subsidy/pm-surya-ghar.html" class="dropdown-link">PM Surya Ghar</a></li>
+                            <li><a href="/government-subsidy/pm-kusum.html" class="dropdown-link">PM-KUSUM Ground Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/locations/index.html" class="nav-link">
+                            Locations <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/locations/delhi-ncr.html" class="dropdown-link">Delhi NCR</a></li>
+                            <li><a href="/locations/ghaziabad.html" class="dropdown-link">Ghaziabad (HQ)</a></li>
+                            <li><a href="/locations/noida.html" class="dropdown-link">Noida & Greater Noida</a></li>
+                            <li><a href="/locations/haryana.html" class="dropdown-link">Haryana</a></li>
+                            <li><a href="/locations/rajasthan.html" class="dropdown-link">Rajasthan</a></li>
+                            <li><a href="/locations/maharashtra.html" class="dropdown-link">Maharashtra</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/insights/index.html" class="nav-link">Insights</a></li>
+                    <li class="nav-item"><a href="/about/index.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
             </div>
         </div>
     </header>
 
     <section class="page-banner">
         <div class="container">
-            <h1>Executed Projects & Case Studies</h1>
-            <p>Over 5.85 MW commissioned across 7 major utility and commercial installations in Haryana, Delhi NCR, UP & Maharashtra.</p>
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Projects</div>
+            <h1>Commissioned Projects & Track Record</h1>
+            <p>Over 5.68 MW commissioned across utility ground solar, industrial factory sheds, commercial buildings, and housing societies in 5 states.</p>
         </div>
     </section>
 
+    <!-- STATS STRIP -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5.68 <span>MW</span></div>
+                    <div class="stat-label">Total Commissioned Capacity</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5.10 <span>MW</span></div>
+                    <div class="stat-label">PM-KUSUM Ground Solar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">575 <span>kW</span></div>
+                    <div class="stat-label">Rooftop Portfolio</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">~85 <span>Lakh</span></div>
+                    <div class="stat-label">Estimated Units / Year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL 7 PROJECTS SHOWCASE GRID -->
     <section class="section-padding">
         <div class="container">
+            <div class="section-heading text-center">
+                <span class="eyebrow-text">DELIVERED ON THE GROUND</span>
+                <h2>Completed Executive Projects</h2>
+                <p>Click any project to view technical specifications, capacity, and DISCOM synchronization details.</p>
+            </div>
+
             <div class="projects-grid">
 
+                <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-img-wrapper">
-                        <img src="../assets/projects/bhiwani-5mw-1.jpg" alt="2.55 MW Ground Plant" class="project-img">
+                        <img src="/assets/projects/bhiwani-5mw-1.jpg" alt="2.55 MW PM-KUSUM Bhiwani" class="project-img">
                         <span class="project-tag">PM-KUSUM Ground Solar</span>
                     </div>
                     <div class="project-body">
                         <div class="project-meta">Bhiwani, Haryana</div>
-                        <h3>2.55 MW Utility Ground Plant #1</h3>
-                        <p>Grid-connected utility power plant commissioned under federal PM-KUSUM program.</p>
+                        <h3>2.55 MW Utility Ground Solar Plant #1</h3>
+                        <p>MW-scale utility power plant engineered and commissioned under Component-A of federal PM-KUSUM program with 33kV substation tie-in.</p>
                         <div class="project-capacity">
                             <span>2.55 MW</span>
-                            <a href="../contact/index.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px;">View Details</a>
+                            <a href="/projects/detail.html?slug=2-55-mw-pm-kusum-ground-solar-plant-1" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-img-wrapper">
-                        <img src="../assets/projects/bhiwani-5mw-2.jpg" alt="2.55 MW Ground Plant #2" class="project-img">
+                        <img src="/assets/projects/bhiwani-5mw-2.jpg" alt="2.55 MW PM-KUSUM Kapurisar" class="project-img">
                         <span class="project-tag">PM-KUSUM Ground Solar</span>
                     </div>
                     <div class="project-body">
-                        <div class="project-meta">Rajasthan / NCR</div>
-                        <h3>2.55 MW Utility Ground Plant #2</h3>
-                        <p>MW-scale utility grid project commissioned with full substation synchronization and DISCOM PPA integration.</p>
+                        <div class="project-meta">Kapurisar, Bikaner, Rajasthan</div>
+                        <h3>2.55 MW Utility Ground Solar Plant #2</h3>
+                        <p>Grid-connected utility solar farm engineered in high irradiance Bikaner desert region under 25-year JVVNL PPA contract.</p>
                         <div class="project-capacity">
                             <span>2.55 MW</span>
-                            <a href="../contact/index.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px;">View Details</a>
+                            <a href="/projects/detail.html?slug=2-55-mw-utility-ground-solar-plant-2" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-img-wrapper">
-                        <img src="../assets/projects/industrial-shed-1.jpg" alt="170 kW Industrial Shed" class="project-img">
-                        <span class="project-tag">Industrial Rooftop</span>
+                        <img src="/assets/projects/industrial-shed-2.jpg" alt="325 kW RWA Maharashtra" class="project-img">
+                        <span class="project-tag">Housing Society Solar</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">CHS Complex, Maharashtra</div>
+                        <h3>325 kW RWA Housing Society Rooftop</h3>
+                        <p>Multi-tower residential rooftop installation offsetting high-speed elevators, water pumps, and campus common area lighting under MSEDCL.</p>
+                        <div class="project-capacity">
+                            <span>325 kW</span>
+                            <a href="/projects/detail.html?slug=325-kw-housing-society-rooftop-plant" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="/assets/projects/industrial-shed-1.jpg" alt="170 kW Industrial Shed Jhajjar" class="project-img">
+                        <span class="project-tag">Industrial Solar Shed</span>
                     </div>
                     <div class="project-body">
                         <div class="project-meta">Jhajjar, Haryana</div>
-                        <h3>170 kW Industrial Shed Plant</h3>
-                        <p>Custom roof structure engineering for factory shed minimizing electricity tariff and capturing net metering benefits.</p>
+                        <h3>170 kW Industrial Factory Shed Plant</h3>
+                        <p>Custom non-penetrative roof structure engineering for corrugated metal factory shed minimizing daytime power tariffs under DHBVN.</p>
                         <div class="project-capacity">
                             <span>170 kW</span>
-                            <a href="../contact/index.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px;">View Details</a>
+                            <a href="/projects/detail.html?slug=170-kw-industrial-shed-solar-plant" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="/assets/projects/industrial-shed-3.jpg" alt="150 kW Bulandshahr" class="project-img">
+                        <span class="project-tag">On-Grid Solar</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">Bulandshahr, UP</div>
+                        <h3>150 kW On-Grid Solar Plant</h3>
+                        <p>Rooftop solar installation for commercial manufacturing unit with bi-directional net metering clearance under UPPCL.</p>
+                        <div class="project-capacity">
+                            <span>150 kW</span>
+                            <a href="/projects/detail.html?slug=150-kw-on-grid-solar-plant-bulandshahr" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="/assets/projects/mainpuri-60kw.jpg" alt="60 kW Mainpuri" class="project-img">
+                        <span class="project-tag">Institutional Solar</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">Mainpuri, UP</div>
+                        <h3>60 kW RWA & Institutional Rooftop</h3>
+                        <p>High-efficiency mono-PERC rooftop solar power installation delivering zero-carbon energy independence for institutional facility.</p>
+                        <div class="project-capacity">
+                            <span>60 kW</span>
+                            <a href="/projects/detail.html?slug=60-kw-solar-power-installation" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="/assets/projects/bhiwani-ground-7.jpg" alt="40 kW Gurugram" class="project-img">
+                        <span class="project-tag">RWA Rooftop</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">Gurugram, Haryana</div>
+                        <h3>40 kW Assotech Blith RWA Solar Rooftop</h3>
+                        <p>High-rise residential rooftop solar installation offsetting common facility power bills under Haryana solar policy.</p>
+                        <div class="project-capacity">
+                            <span>40 kW</span>
+                            <a href="/projects/detail.html?slug=40-kw-assotech-blith-rwa-rooftop-plant" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">Case Study</a>
                         </div>
                     </div>
                 </div>
@@ -85,6 +291,78 @@
             </div>
         </div>
     </section>
-    <script>lucide.createIcons();</script>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <div style="margin-bottom:12px;">
+                        <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                    </div>
+                    <p>
+                        JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.
+                    </p>
+                    <div style="font-weight: 700; color: var(--orange); margin-top: 10px; font-size: 12px; letter-spacing:1px; text-transform:uppercase;">
+                        A NEW WAY TO POWER
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="/solutions/commercial-solar.html">Commercial Solar</a></li>
+                        <li><a href="/solutions/industrial-solar.html">Industrial Solar Sheds</a></li>
+                        <li><a href="/solutions/government-psu.html">Government & PSU</a></li>
+                        <li><a href="/solutions/housing-societies.html">Housing Societies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Services & Subsidy</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/solar-epc.html">Solar EPC Contractor</a></li>
+                        <li><a href="/services/net-metering.html">Net Metering & DISCOM</a></li>
+                        <li><a href="/government-subsidy/pm-surya-ghar.html">PM Surya Ghar Yojana</a></li>
+                        <li><a href="/government-subsidy/pm-kusum.html">PM-KUSUM Ground Solar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Key Locations</h5>
+                    <ul class="footer-links">
+                        <li><a href="/locations/delhi-ncr.html">Delhi NCR</a></li>
+                        <li><a href="/locations/ghaziabad.html">Ghaziabad (HQ)</a></li>
+                        <li><a href="/locations/noida.html">Noida & Greater Noida</a></li>
+                        <li><a href="/locations/haryana.html">Haryana (Bhiwani/Jhajjar)</a></li>
+                        <li><a href="/locations/rajasthan.html">Rajasthan (Kapurisar/Bikaner)</a></li>
+                        <li><a href="/locations/maharashtra.html">Maharashtra</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 JSN Renewable Energy Private Limited. All rights reserved.</div>
+                <div class="footer-legal-links">
+                    <a href="/contact/index.html">Privacy Policy</a>
+                    <a href="/contact/index.html">Terms & Conditions</a>
+                    <a href="/insights/index.html">DISCOM Approvals Guide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

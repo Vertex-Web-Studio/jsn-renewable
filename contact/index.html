@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSN Renewable Energy - Contact Us & Consultation</title>
-    <!-- Favicon & Tab Bar Icon -->
-    <link rel="icon" type="image/png" href="../assets/logo.png">
-    <link rel="shortcut icon" href="../assets/logo.png">
+    <title>Contact JSN Renewable Energy - Get a Free Custom Solar Quote</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -27,40 +27,120 @@
                 <div class="top-bar-info">
                     <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
                     <a href="mailto:info@jsnrenewable.com" class="hide-mobile"><i data-lucide="mail" style="width:14px; height:14px;"></i> info@jsnrenewable.com</a>
+                    <a href="https://wa.me/919289044454" target="_blank" style="color: var(--orange); font-weight:700;"><i data-lucide="message-square" style="width:14px; height:14px;"></i> WhatsApp</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MAIN NAVBAR -->
+    <!-- MAIN STICKY NAVBAR -->
     <header class="navbar">
         <div class="container">
             <div class="navbar-flex">
-                <a href="../index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
-                    <img src="../assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                <a href="/index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
                 </a>
-                <a href="tel:+919289044454" class="btn btn-orange">+91 92890 44454</a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item">
+                        <a href="/solutions/index.html" class="nav-link">
+                            Solutions <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solutions/commercial-solar.html" class="dropdown-link">Commercial Solar</a></li>
+                            <li><a href="/solutions/industrial-solar.html" class="dropdown-link">Industrial Solar Sheds</a></li>
+                            <li><a href="/solutions/offices-malls.html" class="dropdown-link">Offices & Malls</a></li>
+                            <li><a href="/solutions/government-psu.html" class="dropdown-link">Government & PSU</a></li>
+                            <li><a href="/solutions/hospitals.html" class="dropdown-link">Hospitals</a></li>
+                            <li><a href="/solutions/housing-societies.html" class="dropdown-link">Housing Societies</a></li>
+                            <li><a href="/solutions/schools-institutions.html" class="dropdown-link">Schools & Institutions</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/systems/index.html" class="nav-link">
+                            Systems <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/systems/on-grid-solar.html" class="dropdown-link">On-Grid Solar</a></li>
+                            <li><a href="/systems/off-grid-solar.html" class="dropdown-link">Off-Grid Solar</a></li>
+                            <li><a href="/systems/hybrid-solar.html" class="dropdown-link">Hybrid Solar</a></li>
+                            <li><a href="/systems/ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/services/index.html" class="nav-link">
+                            Services <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/solar-epc.html" class="dropdown-link">Solar EPC</a></li>
+                            <li><a href="/services/consultation-feasibility.html" class="dropdown-link">Consultation & Feasibility</a></li>
+                            <li><a href="/services/net-metering.html" class="dropdown-link">Net Metering & DISCOM</a></li>
+                            <li><a href="/services/om-amc.html" class="dropdown-link">O&M and AMC</a></li>
+                            <li><a href="/services/capex-opex.html" class="dropdown-link">CAPEX & OPEX / RESCO</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link">Projects</a></li>
+
+                    <li class="nav-item">
+                        <a href="/government-subsidy/index.html" class="nav-link">
+                            Subsidy <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/government-subsidy/pm-surya-ghar.html" class="dropdown-link">PM Surya Ghar</a></li>
+                            <li><a href="/government-subsidy/pm-kusum.html" class="dropdown-link">PM-KUSUM Ground Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/locations/index.html" class="nav-link">
+                            Locations <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/locations/delhi-ncr.html" class="dropdown-link">Delhi NCR</a></li>
+                            <li><a href="/locations/ghaziabad.html" class="dropdown-link">Ghaziabad (HQ)</a></li>
+                            <li><a href="/locations/noida.html" class="dropdown-link">Noida & Greater Noida</a></li>
+                            <li><a href="/locations/haryana.html" class="dropdown-link">Haryana</a></li>
+                            <li><a href="/locations/rajasthan.html" class="dropdown-link">Rajasthan</a></li>
+                            <li><a href="/locations/maharashtra.html" class="dropdown-link">Maharashtra</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/insights/index.html" class="nav-link">Insights</a></li>
+                    <li class="nav-item"><a href="/about/index.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link active">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- PAGE BANNER -->
     <section class="page-banner">
         <div class="container">
-            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Contact Us</div>
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Contact</div>
             <h1>Contact JSN Renewable Energy</h1>
-            <p>Connect with our senior engineering team for zero-cost site surveys, load feasibility audits, and ROI quotations.</p>
+            <p>Connect with our senior engineering team for zero-cost site survey, load feasibility assessment, and ROI quotation.</p>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section class="section-padding">
         <div class="container">
             <div class="two-col-grid">
                 <div>
-                    <span class="eyebrow-text">GET IN TOUCH</span>
-                    <h2>Ready to Build Your Solar Power Asset?</h2>
-                    <p>Contact our headquarters or schedule a zero-cost site assessment anywhere across Haryana, Delhi NCR, UP, Rajasthan, or Maharashtra.</p>
+                    <span class="eyebrow-text">GET IN TOUCH WITH OUR ENGINEERS</span>
+                    <h2>Headquarters & Direct Hotline</h2>
+                    <p>Connect with Nishar Alam (Director Engineering) and Vipin Kashyap (Director Finance) to plan your rooftop or ground-mounted solar asset.</p>
 
                     <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 24px;">
                         <div style="display: flex; gap: 14px; align-items: flex-start;">
@@ -78,9 +158,9 @@
                                 <i data-lucide="phone" style="width:20px; height:20px;"></i>
                             </div>
                             <div>
-                                <h4 style="margin-bottom: 2px;">Direct Support & Inquiry</h4>
+                                <h4 style="margin-bottom: 2px;">Direct Support Hotline</h4>
                                 <p style="font-size: 13.5px; margin-bottom: 0;">
-                                    Phone: <a href="tel:+919289044454" style="color: var(--primary); font-weight:700; text-decoration:none;">+91 92890 44454</a><br>
+                                    Phone: <a href="tel:+919289044454" style="color: var(--primary); font-weight:700; text-decoration:none;">+91 92890 44454</a> / <a href="tel:+918882044448" style="color: var(--primary); font-weight:700; text-decoration:none;">+91 88820 44448</a><br>
                                     Email: <a href="mailto:info@jsnrenewable.com" style="color: var(--primary); font-weight:700; text-decoration:none;">info@jsnrenewable.com</a>
                                 </p>
                             </div>
@@ -88,11 +168,11 @@
                     </div>
                 </div>
 
-                <!-- Contact Form Card -->
+                <!-- CONTACT FORM -->
                 <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md);">
-                    <h3 style="margin-bottom: 18px; color: var(--primary-dark);">Get a Custom Quote</h3>
+                    <h3 style="margin-bottom: 18px; color: var(--primary-dark);">Request Zero-Cost Site Inspection</h3>
 
-                    <form onsubmit="event.preventDefault(); alert('Thank you for contacting JSN Renewable Energy. Our engineering team will respond shortly.');">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for contacting JSN Renewable Energy. Our engineering team will contact you within 24 hours.');">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contactName">Full Name *</label>
@@ -121,12 +201,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="contactMessage">Project Details / Message</label>
-                            <textarea id="contactMessage" rows="3" placeholder="Specify your sanctioned load, roof area, or target capacity..."></textarea>
+                            <label for="contactMessage">Project Details / Location</label>
+                            <textarea id="contactMessage" rows="3" placeholder="Specify your sanctioned load, roof area, or site location..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-orange" style="width: 100%;">
-                            Submit Consultation Request
+                            Submit Site Survey Request
                         </button>
                     </form>
                 </div>
@@ -138,40 +218,73 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
+
                 <div class="footer-brand">
                     <div style="margin-bottom:12px;">
-                        <img src="../assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                        <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
                     </div>
-                    <p>JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.</p>
+                    <p>
+                        JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.
+                    </p>
                     <div style="font-weight: 700; color: var(--orange); margin-top: 10px; font-size: 12px; letter-spacing:1px; text-transform:uppercase;">
                         A NEW WAY TO POWER
                     </div>
                 </div>
+
                 <div class="footer-column">
-                    <h5>Quick Links</h5>
+                    <h5>Solutions</h5>
                     <ul class="footer-links">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../solutions/index.html">Solar Solutions</a></li>
-                        <li><a href="../services/index.html">Solar Services</a></li>
-                        <li><a href="../projects/index.html">Executed Projects</a></li>
+                        <li><a href="/solutions/commercial-solar.html">Commercial Solar</a></li>
+                        <li><a href="/solutions/industrial-solar.html">Industrial Solar Sheds</a></li>
+                        <li><a href="/solutions/government-psu.html">Government & PSU</a></li>
+                        <li><a href="/solutions/housing-societies.html">Housing Societies</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
-                    <h5>Contact Head Office</h5>
-                    <p style="font-size: 13px; color: #94A3B8; margin-bottom: 8px;">Plot No. 86, Kajipura, Near LK International School, Wave City, Ghaziabad, UP-201002</p>
-                    <p style="font-size: 13px; color: #94A3B8;">Phone: +91 92890 44454<br>Email: info@jsnrenewable.com</p>
+                    <h5>Services & Subsidy</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/solar-epc.html">Solar EPC Contractor</a></li>
+                        <li><a href="/services/net-metering.html">Net Metering & DISCOM</a></li>
+                        <li><a href="/government-subsidy/pm-surya-ghar.html">PM Surya Ghar Yojana</a></li>
+                        <li><a href="/government-subsidy/pm-kusum.html">PM-KUSUM Ground Solar</a></li>
+                    </ul>
                 </div>
+
+                <div class="footer-column">
+                    <h5>Key Locations</h5>
+                    <ul class="footer-links">
+                        <li><a href="/locations/delhi-ncr.html">Delhi NCR</a></li>
+                        <li><a href="/locations/ghaziabad.html">Ghaziabad (HQ)</a></li>
+                        <li><a href="/locations/noida.html">Noida & Greater Noida</a></li>
+                        <li><a href="/locations/haryana.html">Haryana (Bhiwani/Jhajjar)</a></li>
+                        <li><a href="/locations/rajasthan.html">Rajasthan (Kapurisar/Bikaner)</a></li>
+                        <li><a href="/locations/maharashtra.html">Maharashtra</a></li>
+                    </ul>
+                </div>
+
             </div>
+
             <div class="footer-bottom">
                 <div>© 2026 JSN Renewable Energy Private Limited. All rights reserved.</div>
                 <div class="footer-legal-links">
-                    <a href="../contact/index.html">Privacy Policy</a>
-                    <a href="../contact/index.html">Terms & Conditions</a>
+                    <a href="/contact/index.html">Privacy Policy</a>
+                    <a href="/contact/index.html">Terms & Conditions</a>
+                    <a href="/insights/index.html">DISCOM Approvals Guide</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

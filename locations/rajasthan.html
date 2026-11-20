@@ -3,30 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSN Renewable Energy - Solar Projects in Rajasthan</title>
-    <!-- Favicon & Tab Bar Icon -->
-    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
-    <link rel="shortcut icon" href="../assets/logo.svg">
+    <title>JSN Renewable Energy - Rajasthan Solar EPC & PM-KUSUM Ground Plants</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span class="badge-discom">
+                        <i data-lucide="shield-check" style="width:14px; height:14px;"></i>
+                        DISCOM Approved Solar EPC
+                    </span>
+                    <span style="font-size: 12px; color: #CBD5E1;" class="hide-mobile">Serving Haryana, Delhi NCR, UP, Rajasthan & Maharashtra</span>
+                </div>
+                <div class="top-bar-info">
+                    <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
+                    <a href="mailto:info@jsnrenewable.com" class="hide-mobile"><i data-lucide="mail" style="width:14px; height:14px;"></i> info@jsnrenewable.com</a>
+                    <a href="https://wa.me/919289044454" target="_blank" style="color: var(--orange); font-weight:700;"><i data-lucide="message-square" style="width:14px; height:14px;"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVBAR -->
     <header class="navbar">
         <div class="container">
             <div class="navbar-flex">
-                <a href="../index.html" class="brand-logo">
-                    <img src="../assets/logo.svg" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                <a href="/index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
                 </a>
-                <a href="../contact/index.html" class="btn btn-orange">Rajasthan Ground Survey</a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item">
+                        <a href="/solutions/index.html" class="nav-link">
+                            Solutions <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solutions/commercial-solar.html" class="dropdown-link">Commercial Solar</a></li>
+                            <li><a href="/solutions/industrial-solar.html" class="dropdown-link">Industrial Solar Sheds</a></li>
+                            <li><a href="/solutions/offices-malls.html" class="dropdown-link">Offices & Malls</a></li>
+                            <li><a href="/solutions/government-psu.html" class="dropdown-link">Government & PSU</a></li>
+                            <li><a href="/solutions/hospitals.html" class="dropdown-link">Hospitals</a></li>
+                            <li><a href="/solutions/housing-societies.html" class="dropdown-link">Housing Societies</a></li>
+                            <li><a href="/solutions/schools-institutions.html" class="dropdown-link">Schools & Institutions</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/systems/index.html" class="nav-link">
+                            Systems <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/systems/on-grid-solar.html" class="dropdown-link">On-Grid Solar</a></li>
+                            <li><a href="/systems/off-grid-solar.html" class="dropdown-link">Off-Grid Solar</a></li>
+                            <li><a href="/systems/hybrid-solar.html" class="dropdown-link">Hybrid Solar</a></li>
+                            <li><a href="/systems/ground-mounted-solar.html" class="dropdown-link">Ground-Mounted Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/services/index.html" class="nav-link">
+                            Services <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/solar-epc.html" class="dropdown-link">Solar EPC</a></li>
+                            <li><a href="/services/consultation-feasibility.html" class="dropdown-link">Consultation & Feasibility</a></li>
+                            <li><a href="/services/net-metering.html" class="dropdown-link">Net Metering & DISCOM</a></li>
+                            <li><a href="/services/om-amc.html" class="dropdown-link">O&M and AMC</a></li>
+                            <li><a href="/services/capex-opex.html" class="dropdown-link">CAPEX & OPEX / RESCO</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link">Projects</a></li>
+
+                    <li class="nav-item">
+                        <a href="/government-subsidy/index.html" class="nav-link">
+                            Subsidy <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/government-subsidy/pm-surya-ghar.html" class="dropdown-link">PM Surya Ghar</a></li>
+                            <li><a href="/government-subsidy/pm-kusum.html" class="dropdown-link">PM-KUSUM Ground Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/locations/index.html" class="nav-link active">
+                            Locations <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/locations/delhi-ncr.html" class="dropdown-link">Delhi NCR</a></li>
+                            <li><a href="/locations/ghaziabad.html" class="dropdown-link">Ghaziabad (HQ)</a></li>
+                            <li><a href="/locations/noida.html" class="dropdown-link">Noida & Greater Noida</a></li>
+                            <li><a href="/locations/haryana.html" class="dropdown-link">Haryana</a></li>
+                            <li><a href="/locations/rajasthan.html" class="dropdown-link active">Rajasthan</a></li>
+                            <li><a href="/locations/maharashtra.html" class="dropdown-link">Maharashtra</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/insights/index.html" class="nav-link">Insights</a></li>
+                    <li class="nav-item"><a href="/about/index.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
             </div>
         </div>
     </header>
 
     <section class="page-banner">
         <div class="container">
-            <h1>Ground-Mounted Solar Plants in Rajasthan</h1>
-            <p>MW-scale utility solar power plant execution connected directly to state grid substations.</p>
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Locations / Rajasthan</div>
+            <h1>Rajasthan MW-Scale Utility & PM-KUSUM Solar EPC</h1>
+            <p>Commissioned 2.55 MW Ground-Mounted Utility Power Plant at Kapurisar, Bikaner Region, Rajasthan under JVVNL & PM-KUSUM Scheme.</p>
         </div>
     </section>
 
@@ -34,18 +138,137 @@
         <div class="container">
             <div class="two-col-grid">
                 <div>
-                    <span class="eyebrow-text">HIGH INSOLATION UTILITY PLANTS</span>
-                    <h2>PM-KUSUM Utility Solar EPC in Rajasthan</h2>
-                    <p>Rajasthan boasts the highest solar irradiation levels in India. JSN Renewable Energy has commissioned utility-scale 2.55 MW ground solar power plants synchronized with state transmission grid substations.</p>
+                    <span class="eyebrow-text">MW-SCALE UTILITY EXPERTISE</span>
+                    <h2>2.55 MW PM-KUSUM Kapurisar, Bikaner Project</h2>
+                    <p>JSN Renewable Energy Private Limited engineered and commissioned a landmark 2.55 MW utility-scale ground-mounted solar power plant at Kapurisar in the Bikaner region of Rajasthan. Executed under PM-KUSUM Component A, the plant feeds high-voltage clean electricity directly into the state grid under a 25-year Power Purchase Agreement (PPA).</p>
+
+                    <div class="about-features" style="margin-top:20px;">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i data-lucide="check" style="width:16px;"></i></div>
+                            <div class="feature-text">
+                                <h4>33kV Outdoor Substation Engineering</h4>
+                                <p>Complete installation of step-up transformers, vacuum circuit breakers, and telemetry grid meters synchronized with JVVNL sub-station.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon"><i data-lucide="check" style="width:16px;"></i></div>
+                            <div class="feature-text">
+                                <h4>ALMM Tier-1 Mono-PERC Modules</h4>
+                                <p>Designed for high irradiance desert climatic conditions with anti-soiling telemetry and 25-year performance warranty.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px;">
-                    <h3>Rajasthan Land Feasibility</h3>
-                    <p>Feasibility audits for utility ground solar farms in Rajasthan.</p>
-                    <a href="../contact/index.html" class="btn btn-primary" style="width:100%;">Inquire Rajasthan Ground Solar</a>
+
+                <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md);">
+                    <h3 style="margin-bottom: 16px; color: var(--primary-dark);">Develop MW Solar Farm in Rajasthan</h3>
+                    <p style="font-size:13.5px;">Connect with our MW-scale project execution team led by Director Nishar Alam.</p>
+                    <a href="/contact/index.html" class="btn btn-orange" style="width:100%;">Consult MW Solar Team</a>
                 </div>
             </div>
         </div>
     </section>
-    <script>lucide.createIcons();</script>
+
+    <!-- EXECUTED PROJECT CARD -->
+    <section class="section-padding section-bg-alt">
+        <div class="container">
+            <div class="section-heading text-center">
+                <span class="eyebrow-text">COMMISSIONED ASSET</span>
+                <h2>Rajasthan Project Portfolio</h2>
+            </div>
+
+            <div class="projects-grid" style="max-width:700px; margin:0 auto;">
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="/assets/projects/bhiwani-5mw-2.jpg" alt="2.55 MW Kapurisar Bikaner" class="project-img">
+                        <span class="project-tag">PM-KUSUM Ground Solar</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">Kapurisar, Bikaner, Rajasthan</div>
+                        <h3>2.55 MW Utility Ground Solar Plant</h3>
+                        <p>MW-scale utility grid power plant engineered under federal PM-KUSUM program with full substation tie-in.</p>
+                        <div class="project-capacity">
+                            <span>2.55 MW</span>
+                            <a href="/projects/index.html" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12.5px;">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <div style="margin-bottom:12px;">
+                        <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                    </div>
+                    <p>
+                        JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.
+                    </p>
+                    <div style="font-weight: 700; color: var(--orange); margin-top: 10px; font-size: 12px; letter-spacing:1px; text-transform:uppercase;">
+                        A NEW WAY TO POWER
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="/solutions/commercial-solar.html">Commercial Solar</a></li>
+                        <li><a href="/solutions/industrial-solar.html">Industrial Solar Sheds</a></li>
+                        <li><a href="/solutions/government-psu.html">Government & PSU</a></li>
+                        <li><a href="/solutions/housing-societies.html">Housing Societies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Services & Subsidy</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/solar-epc.html">Solar EPC Contractor</a></li>
+                        <li><a href="/services/net-metering.html">Net Metering & DISCOM</a></li>
+                        <li><a href="/government-subsidy/pm-surya-ghar.html">PM Surya Ghar Yojana</a></li>
+                        <li><a href="/government-subsidy/pm-kusum.html">PM-KUSUM Ground Solar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Key Locations</h5>
+                    <ul class="footer-links">
+                        <li><a href="/locations/delhi-ncr.html">Delhi NCR</a></li>
+                        <li><a href="/locations/ghaziabad.html">Ghaziabad (HQ)</a></li>
+                        <li><a href="/locations/noida.html">Noida & Greater Noida</a></li>
+                        <li><a href="/locations/haryana.html">Haryana (Bhiwani/Jhajjar)</a></li>
+                        <li><a href="/locations/rajasthan.html">Rajasthan (Kapurisar/Bikaner)</a></li>
+                        <li><a href="/locations/maharashtra.html">Maharashtra</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 JSN Renewable Energy Private Limited. All rights reserved.</div>
+                <div class="footer-legal-links">
+                    <a href="/contact/index.html">Privacy Policy</a>
+                    <a href="/contact/index.html">Terms & Conditions</a>
+                    <a href="/insights/index.html">DISCOM Approvals Guide</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileBtn && navMenu) {
+            mobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>
