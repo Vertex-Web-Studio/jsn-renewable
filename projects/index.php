@@ -20,7 +20,7 @@ if (empty($projects)) {
             'location' => 'Bhiwani, Haryana',
             'capacity_kw' => 2550.00,
             'description' => 'Grid-connected MW-scale utility power plant engineered and commissioned under federal PM-KUSUM program in Bhiwani, Haryana.',
-            'hero_image' => 'https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=800&auto=format&fit=crop'
+            'hero_image' => '../assets/projects/bhiwani-5mw-1.jpg'
         ],
         [
             'id' => 2,
@@ -30,7 +30,7 @@ if (empty($projects)) {
             'location' => 'Rajasthan / NCR',
             'capacity_kw' => 2550.00,
             'description' => 'MW-scale utility grid project commissioned with full substation synchronization and 25-year DISCOM Power Purchase Agreement (PPA).',
-            'hero_image' => 'https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80&w=800&auto=format&fit=crop'
+            'hero_image' => '../assets/projects/bhiwani-5mw-2.jpg'
         ],
         [
             'id' => 3,
@@ -40,7 +40,17 @@ if (empty($projects)) {
             'location' => 'Jhajjar, Haryana',
             'capacity_kw' => 170.00,
             'description' => 'Custom roof structure engineering for corrugated metal factory shed minimizing electricity tariffs under DHBVN net-metering.',
-            'hero_image' => 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=800&auto=format&fit=crop'
+            'hero_image' => '../assets/projects/industrial-shed-1.jpg'
+        ],
+        [
+            'id' => 4,
+            'title' => '60 kW Solar Power Installation',
+            'slug' => '60-kw-solar-power-installation',
+            'category' => 'Commercial Solar',
+            'location' => 'Mainpuri, UP',
+            'capacity_kw' => 60.00,
+            'description' => 'High-efficiency mono-PERC rooftop solar power setup for institutional facility.',
+            'hero_image' => '../assets/projects/mainpuri-60kw.jpg'
         ],
         [
             'id' => 4,

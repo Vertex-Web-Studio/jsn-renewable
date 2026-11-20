@@ -32,7 +32,7 @@ if (!$project) {
         'capacity_kw' => 2550.00,
         'completion_date' => '2024-03-15',
         'description' => 'Grid-connected MW-scale utility power plant engineered and commissioned under federal PM-KUSUM program in Bhiwani, Haryana. The plant features ALMM listed mono-PERC bifacial solar modules, central inverters, 33kV outdoor substation, and a 25-year DISCOM Power Purchase Agreement (PPA).',
-        'hero_image' => 'https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1200&auto=format&fit=crop'
+        'hero_image' => '../assets/projects/bhiwani-5mw-1.jpg'
     ];
 } else {
     // Fetch gallery images
