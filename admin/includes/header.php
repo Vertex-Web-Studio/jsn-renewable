@@ -34,6 +34,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <li class="<?php echo $currentPage === 'enquiries.php' ? 'active' : ''; ?>">
                 <a href="enquiries.php"><i data-lucide="inbox"></i> Leads & Enquiries</a>
             </li>
+            <li class="<?php echo $currentPage === 'visitors.php' ? 'active' : ''; ?>">
+                <a href="visitors.php"><i data-lucide="activity"></i> Visitor IP Tracker</a>
+            </li>
             <li class="<?php echo $currentPage === 'media.php' ? 'active' : ''; ?>">
                 <a href="media.php"><i data-lucide="image"></i> Media Library</a>
             </li>

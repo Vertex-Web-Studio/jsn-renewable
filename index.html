@@ -642,38 +642,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTION & ACCESSIBILITY SCRIPTS (PART 5 & PART 17) -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Mobile Menu Toggle & Keyboard Accessibility logic
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        if (mobileBtn && navMenu) {
-            mobileBtn.addEventListener('click', () => {
-                const isActive = navMenu.classList.toggle('active');
-                mobileBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-            });
-
-            // Close mobile menu on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileBtn.setAttribute('aria-expanded', 'false');
-                    mobileBtn.focus();
-                }
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navMenu.contains(e.target) && !mobileBtn.contains(e.target) && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-    </script>
+    <!-- MASTER CLIENT JS ENGINE -->
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
