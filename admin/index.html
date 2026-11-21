@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSN Admin CMS Portal - JSN Renewable Energy</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #041B40; color: #10213F; margin: 0; padding: 0; }
+        .login-wrapper { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .login-card { background: #FFFFFF; border-radius: 12px; padding: 40px; max-width: 420px; width: 100%; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+        .logo-box { text-align: center; margin-bottom: 20px; }
+        .logo-box img { height: 56px; width: auto; object-fit: contain; }
+        h1 { font-family: 'Manrope', sans-serif; color: #06265C; font-size: 22px; text-align: center; margin-top: 10px; margin-bottom: 4px; font-weight: 800; }
+        .tagline { font-size: 11px; text-transform: uppercase; color: #FF6900; font-weight: 800; letter-spacing: 1px; text-align: center; margin-bottom: 24px; }
+        .alert-error { background: #FEE2E2; color: #DC2626; padding: 10px; border-radius: 6px; font-size: 13px; margin-bottom: 16px; border: 1px solid #FECACA; display: none; }
+        label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 5px; color: #10213F; }
+        input { width: 100%; padding: 11px 14px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 14px; margin-bottom: 16px; box-sizing: border-box; }
+        input:focus { outline: none; border-color: #FF6900; box-shadow: 0 0 0 3px rgba(255, 105, 0, 0.15); }
+        button { width: 100%; background: #FF6900; color: #FFFFFF; font-family: 'Manrope', sans-serif; font-weight: 700; border: none; padding: 12px; border-radius: 6px; font-size: 15px; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #E85B00; }
+
+        /* DASHBOARD STATE */
+        .dash-container { display: none; background: #F4F6F9; min-height: 100vh; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. LOGIN SCREEN -->
+    <div id="loginScreen" class="login-wrapper">
+        <div class="login-card">
+            <div class="logo-box">
+                <img src="/assets/logo.png" alt="JSN Logo">
+            </div>
+            <h1>ADMIN CMS PORTAL</h1>
+            <div class="tagline">A NEW WAY TO POWER &bull; MANAGEMENT SYSTEM</div>
+
+            <div id="loginError" class="alert-error">Invalid username or password.</div>
+
+            <form id="adminLoginForm">
+                <label for="adminUser">Username or Email</label>
+                <input type="text" id="adminUser" placeholder="admin" value="admin" required autofocus>
+
+                <label for="adminPass">Password</label>
+                <input type="password" id="adminPass" placeholder="••••••••" value="admin12345" required>
+
+                <button type="submit">Log In to Admin Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. INTERACTIVE DASHBOARD -->
+    <div id="dashScreen" class="dash-container">
+        <div class="admin-wrapper">
+            <!-- SIDEBAR -->
+            <aside class="admin-sidebar">
+                <div class="admin-brand">
+                    <div class="admin-brand-title">JSN <span>CMS</span></div>
+                    <div class="admin-brand-tag">A NEW WAY TO POWER</div>
+                </div>
+
+                <ul class="admin-nav">
+                    <li class="active"><a href="javascript:void(0)" onclick="showTab('dashTab')"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+                    <li><a href="javascript:void(0)" onclick="showTab('leadsTab')"><i data-lucide="inbox"></i> Leads & Enquiries</a></li>
+                    <li><a href="javascript:void(0)" onclick="showTab('projectsTab')"><i data-lucide="folder-kanban"></i> Projects CMS</a></li>
+                    <li><a href="javascript:void(0)" onclick="showTab('visitorsTab')"><i data-lucide="activity"></i> Visitor IP Tracker</a></li>
+                    <li><a href="/index.html" target="_blank"><i data-lucide="external-link"></i> View Live Site</a></li>
+                    <li><a href="#" id="btnLogout"><i data-lucide="log-out"></i> Logout</a></li>
+                </ul>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <div class="admin-main">
+                <header class="admin-topbar">
+                    <div>
+                        <strong>JSN Renewable Energy Management Portal</strong>
+                    </div>
+                    <div class="admin-user-info">
+                        <span>Logged in as: <strong id="loggedAdminName">Admin</strong> (SuperAdmin)</span>
+                    </div>
+                </header>
+
+                <main class="admin-content">
+
+                    <!-- TAB 1: DASHBOARD -->
+                    <div id="dashTab" class="tab-pane">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+                            <div>
+                                <h2 style="font-size: 22px; margin-bottom: 4px; color:#06265C;">Dashboard Overview</h2>
+                                <p style="margin: 0; font-size: 13px; color:#64748B;">Real-time website metrics and lead management summary.</p>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-label">Total Enquiries</div>
+                                <div class="metric-number">7</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">New Leads</div>
+                                <div class="metric-number" style="color: #FF6900;">3</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Converted Clients</div>
+                                <div class="metric-number" style="color: #15803D;">4</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Commissioned Capacity</div>
+                                <div class="metric-number" style="color: #009FE3;">5.68 MW</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3 style="margin-top:0; margin-bottom:16px; font-size:16px; color:#06265C;">Recent Site Survey Enquiries</h3>
+                            <div class="table-responsive">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Name</th>
+                                            <th>Phone</th>
+                                            <th>Category</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Nov 21, 2026</td>
+                                            <td><strong>Sunil Verma</strong></td>
+                                            <td>+91 98112 34567</td>
+                                            <td>Industrial Factory Shed</td>
+                                            <td>Jhajjar, Haryana</td>
+                                            <td><span class="status-badge badge-new">New</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nov 20, 2026</td>
+                                            <td><strong>Rajesh Sharma</strong></td>
+                                            <td>+91 98765 43210</td>
+                                            <td>Commercial Rooftop</td>
+                                            <td>Ghaziabad, UP</td>
+                                            <td><span class="status-badge badge-contacted">Contacted</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nov 19, 2026</td>
+                                            <td><strong>Assotech Blith RWA</strong></td>
+                                            <td>+91 99990 12345</td>
+                                            <td>Housing Society RWA</td>
+                                            <td>Gurugram, Haryana</td>
+                                            <td><span class="status-badge badge-converted">Converted</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: LEADS & ENQUIRIES -->
+                    <div id="leadsTab" class="tab-pane" style="display:none;">
+                        <h2 style="font-size:22px; margin-bottom:16px; color:#06265C;">Site Survey Leads Management</h2>
+                        <div class="admin-card">
+                            <div class="table-responsive">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Phone</th>
+                                            <th>Project Type</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#LEAD-101</td>
+                                            <td><strong>Sunil Verma</strong></td>
+                                            <td>+91 98112 34567</td>
+                                            <td>Industrial Factory Shed (170 kW)</td>
+                                            <td>Jhajjar, Haryana</td>
+                                            <td><span class="status-badge badge-new">New</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#LEAD-102</td>
+                                            <td><strong>Rajesh Sharma</strong></td>
+                                            <td>+91 98765 43210</td>
+                                            <td>Commercial Solar Rooftop (110 kW)</td>
+                                            <td>Ghaziabad, UP</td>
+                                            <td><span class="status-badge badge-contacted">Contacted</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#LEAD-103</td>
+                                            <td><strong>Assotech Blith RWA</strong></td>
+                                            <td>+91 99990 12345</td>
+                                            <td>Housing Society Solar (40 kW)</td>
+                                            <td>Gurugram, Haryana</td>
+                                            <td><span class="status-badge badge-converted">Converted</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: PROJECTS CMS -->
+                    <div id="projectsTab" class="tab-pane" style="display:none;">
+                        <h2 style="font-size:22px; margin-bottom:16px; color:#06265C;">Projects CMS Portfolio</h2>
+                        <div class="admin-card">
+                            <div class="table-responsive">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Project Name</th>
+                                            <th>Category</th>
+                                            <th>Location</th>
+                                            <th>Capacity</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>2.55 MW PM-KUSUM Bhiwani Plant</strong></td>
+                                            <td>PM-KUSUM Ground Solar</td>
+                                            <td>Bhiwani, Haryana</td>
+                                            <td><strong style="color:#FF6900;">2.55 MW</strong></td>
+                                            <td><span class="status-badge badge-converted">Published</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2.55 MW PM-KUSUM Kapurisar Plant</strong></td>
+                                            <td>PM-KUSUM Ground Solar</td>
+                                            <td>Bikaner, Rajasthan</td>
+                                            <td><strong style="color:#FF6900;">2.55 MW</strong></td>
+                                            <td><span class="status-badge badge-converted">Published</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>325 kW RWA Housing Society Rooftop</strong></td>
+                                            <td>Housing Society Solar</td>
+                                            <td>Maharashtra</td>
+                                            <td><strong style="color:#FF6900;">325 kW</strong></td>
+                                            <td><span class="status-badge badge-converted">Published</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>170 kW Industrial Factory Shed</strong></td>
+                                            <td>Industrial Solar Shed</td>
+                                            <td>Jhajjar, Haryana</td>
+                                            <td><strong style="color:#FF6900;">170 kW</strong></td>
+                                            <td><span class="status-badge badge-converted">Published</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: VISITOR IP TRACKER -->
+                    <div id="visitorsTab" class="tab-pane" style="display:none;">
+                        <h2 style="font-size:22px; margin-bottom:16px; color:#06265C;">Live Visitor IP Telemetry</h2>
+                        <div class="admin-card">
+                            <div class="table-responsive">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>Visitor IP Address</th>
+                                            <th>Page Visited</th>
+                                            <th>Device / Browser</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="liveIpLogsBody">
+                                        <!-- Dynamically loaded from localStorage visitor telemetry -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT FOR INTERACTIVE CMS -->
+    <script>
+        lucide.createIcons();
+
+        const loginScreen = document.getElementById('loginScreen');
+        const dashScreen = document.getElementById('dashScreen');
+        const loginForm = document.getElementById('adminLoginForm');
+        const loginError = document.getElementById('loginError');
+
+        // Check persistent login state
+        if (localStorage.getItem('jsn_admin_logged') === 'true') {
+            loginScreen.style.display = 'none';
+            dashScreen.style.display = 'block';
+            loadVisitorLogs();
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = document.getElementById('adminUser').value.trim();
+            const pass = document.getElementById('adminPass').value.trim();
+
+            if (user && pass) {
+                localStorage.setItem('jsn_admin_logged', 'true');
+                loginScreen.style.display = 'none';
+                dashScreen.style.display = 'block';
+                loadVisitorLogs();
+            } else {
+                loginError.style.display = 'block';
+            }
+        });
+
+        document.getElementById('btnLogout')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('jsn_admin_logged');
+            dashScreen.style.display = 'none';
+            loginScreen.style.display = 'flex';
+        });
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelectorAll('.admin-nav li').forEach(li => li.classList.remove('active'));
+            event.currentTarget.parentElement.classList.add('active');
+        }
+
+        function loadVisitorLogs() {
+            const logs = JSON.parse(localStorage.getItem('jsn_visitor_logs') || '[]');
+            const tbody = document.getElementById('liveIpLogsBody');
+            if (logs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#64748B;">No live visitor IPs logged yet. Visit pages on live website to generate logs.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = '';
+            logs.forEach(log => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${new Date(log.timestamp).toLocaleString()}</td>
+                    <td><strong style="color:#06265C; font-family:monospace; font-size:14px;">${log.ip}</strong></td>
+                    <td><code>${log.page}</code></td>
+                    <td style="font-size:11px; color:#64748B;">${log.userAgent.substring(0, 60)}...</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
