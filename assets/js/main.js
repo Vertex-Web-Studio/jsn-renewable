@@ -1,6 +1,6 @@
 /**
  * JSN Renewable Energy - Master Client Engine & Interactive State Manager
- * Features: Cookie Consent (Accept/Decline/Customize), Visitor IP Tracking, Navigation Toggles
+ * Features: Multi-Category Solar ROI Calculator, Cookie Consent, Visitor IP Telemetry, Nav Toggles
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,12 +28,110 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. COOKIE CONSENT ENGINE
+    // 2. MULTI-CATEGORY SOLAR ROI CALCULATOR
+    initSolarCalculator();
+
+    // 3. COOKIE CONSENT ENGINE
     initCookieConsent();
 
-    // 3. VISITOR IP TRACKER & LOGGING ENGINE
+    // 4. VISITOR IP TRACKER & LOGGING ENGINE
     trackVisitorIP();
 });
+
+/**
+ * Interactive Multi-Category Solar ROI & Financial Savings Calculator
+ */
+function initSolarCalculator() {
+    const calcCategory = document.getElementById('calcCategory');
+    const billSlider = document.getElementById('calcBillSlider');
+    const billValueDisplay = document.getElementById('calcBillValue');
+    const areaSlider = document.getElementById('calcAreaSlider');
+    const areaValueDisplay = document.getElementById('calcAreaValue');
+
+    const resCapacity = document.getElementById('calcResCapacity');
+    const resSavings = document.getElementById('calcResSavings');
+    const resUnits = document.getElementById('calcResUnits');
+    const resPayback = document.getElementById('calcResPayback');
+    const btnQuote = document.getElementById('calcBtnQuote');
+
+    if (!billSlider || !resCapacity) return;
+
+    function calculate() {
+        const category = calcCategory ? calcCategory.value : 'industrial';
+        const monthlyBill = parseFloat(billSlider.value);
+        const roofArea = parseFloat(areaSlider.value);
+
+        // Update Slider Label Displays
+        if (billValueDisplay) {
+            billValueDisplay.innerText = '₹ ' + monthlyBill.toLocaleString('en-IN');
+        }
+        if (areaValueDisplay) {
+            areaValueDisplay.innerText = roofArea.toLocaleString('en-IN') + ' sq. ft.';
+        }
+
+        // Tariff multiplier based on category
+        let tariffPerUnit = 8.5; // Average industrial C&I tariff
+        if (category === 'commercial') tariffPerUnit = 9.8;
+        if (category === 'kusum') tariffPerUnit = 4.2;
+        if (category === 'rwa') tariffPerUnit = 7.8;
+        if (category === 'residential') tariffPerUnit = 7.0;
+
+        // Estimated Monthly Units Consumed
+        const monthlyUnits = monthlyBill / tariffPerUnit;
+
+        // Solar Plant Capacity needed (1 kW generates ~120 kWh per month)
+        let recommendedKw = Math.round((monthlyUnits / 120) * 10) / 10;
+        if (recommendedKw < 3) recommendedKw = 3;
+
+        // Check roof area constraint (1 kW requires ~90-100 sq. ft.)
+        const maxKwByArea = Math.floor(roofArea / 90);
+        if (recommendedKw > maxKwByArea && maxKwByArea > 0) {
+            recommendedKw = maxKwByArea;
+        }
+
+        // Calculate Annual Savings (₹)
+        const annualUnits = recommendedKw * 1400; // ~1400 kWh/kW/year
+        const annualSavings = Math.round(annualUnits * tariffPerUnit);
+
+        // Calculate Investment & Payback
+        const estimatedCost = recommendedKw * 48000; // Average ₹48,000 / kW turnkey
+        let paybackYears = Math.round((estimatedCost / annualSavings) * 10) / 10;
+        if (paybackYears < 2.5) paybackYears = 2.8;
+
+        // Render Results
+        if (resCapacity) {
+            if (recommendedKw >= 1000) {
+                resCapacity.innerText = (recommendedKw / 1000).toFixed(2) + ' MW';
+            } else {
+                resCapacity.innerText = recommendedKw.toFixed(1) + ' kW';
+            }
+        }
+
+        if (resSavings) {
+            resSavings.innerText = '₹ ' + annualSavings.toLocaleString('en-IN') + ' / yr';
+        }
+
+        if (resUnits) {
+            resUnits.innerText = annualUnits.toLocaleString('en-IN') + ' kWh / yr';
+        }
+
+        if (resPayback) {
+            resPayback.innerText = paybackYears + ' Years';
+        }
+
+        if (btnQuote) {
+            btnQuote.href = `/contact/index.html?capacity=${recommendedKw}&category=${category}`;
+        }
+    }
+
+    // Event Listeners
+    billSlider.addEventListener('input', calculate);
+    areaSlider.addEventListener('input', calculate);
+    if (calcCategory) calcCategory.addEventListener('change', calculate);
+
+    // Initial calculation
+    calculate();
+}
 
 /**
  * Cookie Consent Manager (Accept, Decline, Customize)
@@ -42,7 +140,6 @@ function initCookieConsent() {
     const consent = localStorage.getItem('jsn_cookie_consent');
     if (consent) return; // User already made a choice
 
-    // Inject Cookie Consent Banner HTML into body
     const bannerHtml = `
         <div id="cookieConsentBanner" class="cookie-consent-banner">
             <div class="cookie-consent-title">
@@ -58,7 +155,6 @@ function initCookieConsent() {
             </div>
         </div>
 
-        <!-- COOKIE PREFERENCES MODAL -->
         <div id="cookieModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:10000; padding:40px 20px;">
             <div style="background:#041B40; color:#fff; max-width:500px; margin:40px auto; padding:28px; border-radius:12px; border:1px solid rgba(255,105,0,0.3);">
                 <h3 style="color:#fff; margin-top:0; margin-bottom:12px;">Cookie Preferences</h3>
@@ -133,13 +229,11 @@ function trackVisitorIP() {
                 timestamp: new Date().toISOString()
             };
 
-            // Store in visitor history array
             let logs = JSON.parse(localStorage.getItem('jsn_visitor_logs') || '[]');
             logs.unshift(logEntry);
-            if (logs.length > 50) logs = logs.slice(0, 50); // Keep last 50 logs
+            if (logs.length > 50) logs = logs.slice(0, 50);
             localStorage.setItem('jsn_visitor_logs', JSON.stringify(logs));
 
-            // Post to backend ip-logger if endpoint exists
             fetch('/ip-logger.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
