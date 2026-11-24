@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Calculator & ROI Financial Savings Estimator - JSN Renewable Energy</title>
+    <meta name="description" content="Calculate your recommended solar plant capacity, monthly electricity bill savings, payback period, and PM Surya Ghar subsidy eligibility.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span class="badge-discom">
+                        <i data-lucide="shield-check" style="width:14px; height:14px;"></i>
+                        DISCOM Approved Solar EPC
+                    </span>
+                    <span style="font-size: 12px; color: #CBD5E1;" class="hide-mobile">Serving Haryana, Delhi NCR, UP, Rajasthan & Maharashtra</span>
+                </div>
+                <div class="top-bar-info">
+                    <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
+                    <a href="mailto:info@jsnrenewable.com" class="hide-mobile"><i data-lucide="mail" style="width:14px; height:14px;"></i> info@jsnrenewable.com</a>
+                    <a href="https://wa.me/919289044454" target="_blank" style="color: var(--orange); font-weight:700;"><i data-lucide="message-square" style="width:14px; height:14px;"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVBAR (SIMPLIFIED & CLEAN) -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-flex">
+                <a href="/index.html" class="brand-logo" aria-label="JSN Renewable Energy Homepage">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                </a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item">
+                        <a href="/about/index.html" class="nav-link">
+                            About Us <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/about/index.html" class="dropdown-link">Company Overview</a></li>
+                            <li><a href="/about/team.html" class="dropdown-link">Our Leadership Team</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/solutions/index.html" class="nav-link">
+                            Solutions <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solutions/residential-solar.html" class="dropdown-link">Residential Solar</a></li>
+                            <li><a href="/solutions/commercial-solar.html" class="dropdown-link">Commercial Solar</a></li>
+                            <li><a href="/solutions/industrial-solar.html" class="dropdown-link">Industrial Solar Sheds</a></li>
+                            <li><a href="/solutions/rooftop-solar.html" class="dropdown-link">Rooftop Solar</a></li>
+                            <li><a href="/systems/ground-mounted-solar.html" class="dropdown-link">Ground Mounted Solar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="/calculator.html" class="nav-link active">Calculator</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / Solar Calculator</div>
+            <h1>Solar ROI & Financial Savings Estimator</h1>
+            <p>Accurate, state-specific solar plant sizing, power bill reduction, payback period, and PM Surya Ghar subsidy estimates.</p>
+        </div>
+    </section>
+
+    <!-- CALCULATOR ENGINE SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="calculator-box">
+                <div class="calculator-grid">
+
+                    <!-- INPUT CONTROLS -->
+                    <div>
+                        <h3 style="font-size: 18px; color: var(--primary-dark); margin-bottom: 16px;">1. Enter Your Electricity & Roof Details</h3>
+
+                        <div class="form-group">
+                            <label for="calcCategory">Select System Variety / Sector *</label>
+                            <select id="calcCategory">
+                                <option value="residential">Residential Rooftop (PM Surya Ghar Eligible)</option>
+                                <option value="rwa">Housing Society RWA Complex</option>
+                                <option value="commercial">Commercial Office / Hotel / Mall</option>
+                                <option value="industrial">Industrial Factory Shed / Warehouse</option>
+                                <option value="kusum">PM-KUSUM Ground Solar Farm</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="calcState">Select Location / State *</label>
+                            <select id="calcState">
+                                <option value="8.0">Uttar Pradesh (UPPCL Tariff ₹8.0/unit)</option>
+                                <option value="7.8">Haryana (DHBVN Tariff ₹7.8/unit)</option>
+                                <option value="8.5">Delhi NCR (BSES / TPDDL Tariff ₹8.5/unit)</option>
+                                <option value="9.0">Rajasthan (JVVNL Tariff ₹9.0/unit)</option>
+                                <option value="9.5">Maharashtra (MSEDCL Tariff ₹9.5/unit)</option>
+                            </select>
+                        </div>
+
+                        <div class="range-wrapper">
+                            <div class="range-header">
+                                <label for="calcBillSlider">Average Monthly Electricity Bill (₹)</label>
+                                <span class="range-value" id="calcBillValue">₹ 150,000</span>
+                            </div>
+                            <input type="range" id="calcBillSlider" min="3000" max="2000000" step="1000" value="150000">
+                        </div>
+
+                        <div class="range-wrapper">
+                            <div class="range-header">
+                                <label for="calcAreaSlider">Available Shade-Free Roof / Land Area (sq. ft.)</label>
+                                <span class="range-value" id="calcAreaValue">15,000 sq. ft.</span>
+                            </div>
+                            <input type="range" id="calcAreaSlider" min="300" max="150000" step="500" value="15000">
+                        </div>
+
+                        <div style="font-size:12px; color:var(--text-secondary); background:var(--background); padding:12px; border-radius:var(--radius-sm); border-left:3px solid var(--orange);">
+                            * Note: Sizing calculations assume ~100 sq. ft. roof area required per 1 kW solar plant and average North India solar irradiance of ~1,400 kWh/kW/year.
+                        </div>
+                    </div>
+
+                    <!-- OUTPUT DISPLAY DASHBOARD -->
+                    <div>
+                        <div class="calc-result-card">
+                            <div class="calc-result-title">Recommended Solar Plant Size</div>
+                            <div class="calc-result-number" id="calcResCapacity">35.0 kW</div>
+
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; text-align:left; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px; font-size:13px;">
+                                <div>
+                                    <span style="color:#CBD5E1; font-size:11px; text-transform:uppercase;">Estimated Monthly Savings</span>
+                                    <div id="calcResMonthlySavings" style="font-size:17px; font-weight:800; color:#FF6900;">₹ 34,700 / mo</div>
+                                </div>
+                                <div>
+                                    <span style="color:#CBD5E1; font-size:11px; text-transform:uppercase;">Annual Savings</span>
+                                    <div id="calcResSavings" style="font-size:17px; font-weight:800; color:#FF6900;">₹ 4,16,500 / yr</div>
+                                </div>
+                                <div>
+                                    <span style="color:#CBD5E1; font-size:11px; text-transform:uppercase;">Annual Clean Generation</span>
+                                    <div id="calcResUnits" style="font-size:17px; font-weight:800; color:#FFFFFF;">49,000 kWh / yr</div>
+                                </div>
+                                <div>
+                                    <span style="color:#CBD5E1; font-size:11px; text-transform:uppercase;">Estimated Payback</span>
+                                    <div id="calcResPayback" style="font-size:17px; font-weight:800; color:#009FE3;">3.2 Years</div>
+                                </div>
+                                <div>
+                                    <span style="color:#CBD5E1; font-size:11px; text-transform:uppercase;">Estimated Turnkey Cost</span>
+                                    <div id="calcResCost" style="font-size:17px; font-weight:800; color:#FFFFFF;">₹ 16.8 Lakh</div>
+                                </div>
+                                <div>
+                                    <span style="color:#CBD5E1; font-size:11px; text-transform:uppercase;">Subsidy Estimate</span>
+                                    <div id="calcResSubsidy" style="font-size:17px; font-weight:800; color:#008C45;">₹ 78,000</div>
+                                </div>
+                            </div>
+
+                            <a id="calcBtnQuote" href="/contact/index.html" class="btn btn-orange" style="width:100%; margin-top:24px;">
+                                Request Custom Engineering Proposal
+                                <i data-lucide="arrow-right" style="width:16px; height:16px;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <div style="margin-bottom:12px;">
+                        <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                    </div>
+                    <p>
+                        JSN Renewable Energy Private Limited is a premier commercial, industrial, and ground-mounted solar EPC contractor based in Ghaziabad, UP.
+                    </p>
+                    <div style="font-weight: 700; color: var(--orange); margin-top: 10px; font-size: 12px; letter-spacing:1px; text-transform:uppercase;">
+                        A NEW WAY TO POWER
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about/index.html">About Us</a></li>
+                        <li><a href="/solutions/index.html">Solar Solutions</a></li>
+                        <li><a href="/projects/index.html">Executed Projects</a></li>
+                        <li><a href="/calculator.html">Solar Calculator</a></li>
+                        <li><a href="/faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Legal & Policy</h5>
+                    <ul class="footer-links">
+                        <li><a href="/government-subsidy/pm-surya-ghar.html">PM Surya Ghar Yojana</a></li>
+                        <li><a href="/government-subsidy/pm-kusum.html">PM-KUSUM Scheme</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 JSN Renewable Energy Private Limited. All rights reserved.</div>
+                <div class="footer-legal-links">
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms-and-conditions.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

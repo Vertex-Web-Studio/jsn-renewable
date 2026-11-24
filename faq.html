@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions (FAQs) - JSN Renewable Energy</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="shortcut icon" href="/assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-flex">
+                <div class="top-bar-info">
+                    <span class="badge-discom">
+                        <i data-lucide="shield-check" style="width:14px; height:14px;"></i>
+                        DISCOM Approved Solar EPC
+                    </span>
+                    <span style="font-size: 12px; color: #CBD5E1;" class="hide-mobile">Serving Haryana, Delhi NCR, UP, Rajasthan & Maharashtra</span>
+                </div>
+                <div class="top-bar-info">
+                    <a href="tel:+919289044454"><i data-lucide="phone" style="width:14px; height:14px;"></i> +91 92890 44454</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-flex">
+                <a href="/index.html" class="brand-logo">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="brand-logo-img">
+                </a>
+
+                <button class="mobile-toggle" id="mobileMenuBtn">
+                    <i data-lucide="menu" style="width:26px; height:26px;"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/about/index.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="/solutions/index.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="/projects/index.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="/calculator.html" class="nav-link">Calculator</a></li>
+                    <li class="nav-item"><a href="/contact/index.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="hide-mobile" style="margin-left: 15px;">
+                    <a href="/contact/index.html" class="btn btn-orange">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <div style="font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); font-weight: 700; margin-bottom: 6px;">Home / FAQs</div>
+            <h1>Frequently Asked Questions</h1>
+            <p>Clear answers to solar plant installation, net-metering approvals, payback timelines, and subsidies.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="faq-grid">
+
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        <span>1. How does DISCOM net-metering work for rooftop solar?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Net metering allows your solar plant to export excess electricity generated during sunny daytime hours back to the local utility grid (e.g. UPPCL, DHBVN, BSES, MSEDCL). At the end of the monthly billing cycle, your DISCOM bill calculates only the net units consumed from the grid.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>2. What is the typical payback period for a commercial or industrial solar plant?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Commercial and industrial clients paying high grid tariffs (₹8.5 to ₹11 per unit) generally achieve complete financial payback in 3 to 3.5 years. Additionally, commercial enterprises benefit from 40% annual accelerated depreciation tax write-offs.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>3. How much subsidy is provided under PM Surya Ghar Muft Bijli Yojana?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Under PM Surya Ghar, individual residential homeowners receive ₹30,000 per kW for 1 kW and 2 kW solar plants, plus ₹18,000 for the 3rd kW (Maximum subsidy ₹78,000). Housing societies (RWA) receive ₹18,000 per kW for common area lighting and elevator power.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>4. Does JSN Renewable Energy handle DISCOM paperwork and CEIG safety inspections?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! JSN Renewable Energy provides 100% single-contract accountability. Our electrical engineering team handles online feasibility applications, CEIG safety inspection clearances, bi-directional meter testing, and final grid commissioning.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/assets/logo.png" alt="JSN Renewable Energy Logo" class="footer-logo-img">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

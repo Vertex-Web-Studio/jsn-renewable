@@ -9,25 +9,38 @@ $newEnquiries = 0;
 $convertedEnquiries = 0;
 $totalProjects = 0;
 $publishedProjects = 0;
+$draftProjects = 0;
+$todayVisitors = 0;
+$todayPageViews = 0;
+
 $recentEnquiries = [];
 $recentProjects = [];
 
 if ($db) {
-    $totalEnquiries = $db->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
-    $newEnquiries = $db->query("SELECT COUNT(*) FROM enquiries WHERE status = 'New'")->fetchColumn();
-    $convertedEnquiries = $db->query("SELECT COUNT(*) FROM enquiries WHERE status = 'Converted'")->fetchColumn();
-    $totalProjects = $db->query("SELECT COUNT(*) FROM projects")->fetchColumn();
-    $publishedProjects = $db->query("SELECT COUNT(*) FROM projects WHERE is_published = 1")->fetchColumn();
+    try {
+        $totalEnquiries = $db->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
+        $newEnquiries = $db->query("SELECT COUNT(*) FROM enquiries WHERE status = 'New'")->fetchColumn();
+        $convertedEnquiries = $db->query("SELECT COUNT(*) FROM enquiries WHERE status = 'Converted'")->fetchColumn();
 
-    $recentEnquiries = $db->query("SELECT * FROM enquiries ORDER BY id DESC LIMIT 5")->fetchAll();
-    $recentProjects = $db->query("SELECT * FROM projects ORDER BY id DESC LIMIT 5")->fetchAll();
+        $totalProjects = $db->query("SELECT COUNT(*) FROM projects")->fetchColumn();
+        $publishedProjects = $db->query("SELECT COUNT(*) FROM projects WHERE is_published = 1")->fetchColumn();
+        $draftProjects = $db->query("SELECT COUNT(*) FROM projects WHERE is_published = 0")->fetchColumn();
+
+        $todayVisitors = $db->query("SELECT COUNT(DISTINCT session_id) FROM visitor_logs WHERE DATE(created_at) = CURDATE()")->fetchColumn();
+        $todayPageViews = $db->query("SELECT COUNT(*) FROM visitor_logs WHERE DATE(created_at) = CURDATE()")->fetchColumn();
+
+        $recentEnquiries = $db->query("SELECT * FROM enquiries ORDER BY id DESC LIMIT 5")->fetchAll();
+        $recentProjects = $db->query("SELECT * FROM projects ORDER BY id DESC LIMIT 5")->fetchAll();
+    } catch (Exception $e) {
+        // Fallback default metric state
+    }
 }
 ?>
 
 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
     <div>
         <h1 style="font-size: 24px; margin-bottom: 4px;">Dashboard Overview</h1>
-        <p style="margin: 0; font-size: 13px;">Real-time database statistics and lead management summary.</p>
+        <p style="margin: 0; font-size: 13px;">Real-time database statistics, visitor analytics, and enquiry leads.</p>
     </div>
     <div>
         <a href="project-edit.php" class="admin-btn admin-btn-primary"><i data-lucide="plus"></i> Add New Project</a>
@@ -37,6 +50,10 @@ if ($db) {
 <!-- METRICS CARDS -->
 <div class="metrics-grid">
     <div class="metric-card">
+        <div class="metric-label">Total Projects</div>
+        <div class="metric-number"><?php echo number_format($totalProjects); ?> <span style="font-size:13px; color:var(--admin-muted); font-weight:normal;">(<?php echo $publishedProjects; ?> Pub / <?php echo $draftProjects; ?> Draft)</span></div>
+    </div>
+    <div class="metric-card">
         <div class="metric-label">Total Enquiries</div>
         <div class="metric-number"><?php echo number_format($totalEnquiries); ?></div>
     </div>
@@ -45,12 +62,8 @@ if ($db) {
         <div class="metric-number" style="color: var(--admin-orange);"><?php echo number_format($newEnquiries); ?></div>
     </div>
     <div class="metric-card">
-        <div class="metric-label">Converted Clients</div>
-        <div class="metric-number" style="color: #15803D;"><?php echo number_format($convertedEnquiries); ?></div>
-    </div>
-    <div class="metric-card">
-        <div class="metric-label">Published Projects</div>
-        <div class="metric-number" style="color: var(--admin-blue);"><?php echo number_format($publishedProjects); ?> / <?php echo number_format($totalProjects); ?></div>
+        <div class="metric-label">Today's Visitors</div>
+        <div class="metric-number" style="color: var(--admin-blue);"><?php echo number_format($todayVisitors); ?> <span style="font-size:12px; color:var(--admin-muted); font-weight:normal;">(<?php echo $todayPageViews; ?> views)</span></div>
     </div>
 </div>
 
