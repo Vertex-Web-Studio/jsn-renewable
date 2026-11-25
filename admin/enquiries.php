@@ -24,13 +24,17 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv' && $db) {
 
 // Handle Status Update & Notes
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enquiry_id']) && $db) {
-    $enquiryId = (int)$_POST['enquiry_id'];
-    $status = sanitize($_POST['status'] ?? 'New');
-    $notes = sanitize($_POST['follow_up_notes'] ?? '');
+    if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
+        $message = "Security check failed. Invalid CSRF token.";
+    } else {
+        $enquiryId = (int)$_POST['enquiry_id'];
+        $status = sanitize($_POST['status'] ?? 'New');
+        $notes = sanitize($_POST['follow_up_notes'] ?? '');
 
-    $stmt = $db->prepare("UPDATE enquiries SET status = :status, follow_up_notes = :notes, updated_at = NOW() WHERE id = :id");
-    $stmt->execute([':status' => $status, ':notes' => $notes, ':id' => $enquiryId]);
-    $message = "Lead status and notes updated for Lead #$enquiryId.";
+        $stmt = $db->prepare("UPDATE enquiries SET status = :status, follow_up_notes = :notes, updated_at = NOW() WHERE id = :id");
+        $stmt->execute([':status' => $status, ':notes' => $notes, ':id' => $enquiryId]);
+        $message = "Lead status and notes updated for Lead #$enquiryId.";
+    }
 }
 
 // Search and Filter
@@ -147,6 +151,7 @@ if ($db) {
                                         </div>
 
                                         <form method="POST">
+                                            <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
                                             <input type="hidden" name="enquiry_id" value="<?php echo $enq['id']; ?>">
                                             <div class="form-group">
                                                 <label>Lead Status</label>

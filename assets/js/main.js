@@ -1,15 +1,28 @@
 /**
- * JSN Renewable Energy - Master Client Engine & Interactive State Manager
- * Features: Multi-Category Solar ROI Calculator, Cookie Consent, Visitor IP Telemetry, Nav Toggles
+ * JSN Renewable Energy - Master Client Engine
+ * Features: Verified Solar ROI Calculator, Sticky Navbar Scroll, Mobile Menu, Cookie Consent, Server-Side Analytics Ping
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Lucide Icons
     if (window.lucide) {
         lucide.createIcons();
     }
 
-    // 1. MOBILE MENU TOGGLE
+    // 1. Sticky Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        const onScroll = () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    // 2. Mobile Menu Toggle
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
 
@@ -19,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
@@ -28,217 +40,280 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. MULTI-CATEGORY SOLAR ROI CALCULATOR
+    // 3. Solar ROI & Subsidy Calculator
     initSolarCalculator();
 
-    // 3. COOKIE CONSENT ENGINE
+    // 4. Cookie Consent Banner
     initCookieConsent();
 
-    // 4. VISITOR IP TRACKER & LOGGING ENGINE
-    trackVisitorIP();
+    // 5. Server-Side Visitor Analytics Ping (non-blocking)
+    trackVisitorSession();
 });
 
 /**
- * Interactive Multi-Category Solar ROI & Financial Savings Calculator
+ * Verified Solar ROI, Generation & PM Surya Ghar Subsidy Calculator
+ * All outputs are clearly presented as engineering estimates.
  */
 function initSolarCalculator() {
     const calcCategory = document.getElementById('calcCategory');
+    const calcState = document.getElementById('calcState');
     const billSlider = document.getElementById('calcBillSlider');
+    const billInput = document.getElementById('calcBillInput');
     const billValueDisplay = document.getElementById('calcBillValue');
+    const rateInput = document.getElementById('calcRateInput');
     const areaSlider = document.getElementById('calcAreaSlider');
+    const areaInput = document.getElementById('calcAreaInput');
     const areaValueDisplay = document.getElementById('calcAreaValue');
+    const calcError = document.getElementById('calcValidationError');
 
     const resCapacity = document.getElementById('calcResCapacity');
-    const resSavings = document.getElementById('calcResSavings');
+    const resMonthlyUnits = document.getElementById('calcResMonthlyUnits');
     const resUnits = document.getElementById('calcResUnits');
+    const resCost = document.getElementById('calcResCost');
+    const resMonthlySavings = document.getElementById('calcResMonthlySavings');
+    const resSavings = document.getElementById('calcResSavings');
     const resPayback = document.getElementById('calcResPayback');
+    const resSubsidy = document.getElementById('calcResSubsidy');
     const btnQuote = document.getElementById('calcBtnQuote');
 
-    if (!billSlider || !resCapacity) return;
+    if (!resCapacity || (!billSlider && !billInput)) return;
 
-    function calculate() {
-        const category = calcCategory ? calcCategory.value : 'industrial';
-        const monthlyBill = parseFloat(billSlider.value);
-        const roofArea = parseFloat(areaSlider.value);
+    function formatINR(amount) {
+        return '₹ ' + Math.round(amount).toLocaleString('en-IN');
+    }
 
-        // Update Slider Label Displays
-        if (billValueDisplay) {
-            billValueDisplay.innerText = '₹ ' + monthlyBill.toLocaleString('en-IN');
+    function formatCost(amount) {
+        if (amount >= 10000000) {
+            return '₹ ' + (amount / 10000000).toFixed(2) + ' Cr';
         }
-        if (areaValueDisplay) {
-            areaValueDisplay.innerText = roofArea.toLocaleString('en-IN') + ' sq. ft.';
+        if (amount >= 100000) {
+            return '₹ ' + (amount / 100000).toFixed(2) + ' Lakh';
         }
+        return formatINR(amount);
+    }
 
-        // Tariff multiplier based on category
-        let tariffPerUnit = 8.5; // Average industrial C&I tariff
-        if (category === 'commercial') tariffPerUnit = 9.8;
-        if (category === 'kusum') tariffPerUnit = 4.2;
-        if (category === 'rwa') tariffPerUnit = 7.8;
-        if (category === 'residential') tariffPerUnit = 7.0;
-
-        // Estimated Monthly Units Consumed
-        const monthlyUnits = monthlyBill / tariffPerUnit;
-
-        // Solar Plant Capacity needed (1 kW generates ~120 kWh per month)
-        let recommendedKw = Math.round((monthlyUnits / 120) * 10) / 10;
-        if (recommendedKw < 3) recommendedKw = 3;
-
-        // Check roof area constraint (1 kW requires ~90-100 sq. ft.)
-        const maxKwByArea = Math.floor(roofArea / 90);
-        if (recommendedKw > maxKwByArea && maxKwByArea > 0) {
-            recommendedKw = maxKwByArea;
-        }
-
-        // Calculate Annual Savings (₹)
-        const annualUnits = recommendedKw * 1400; // ~1400 kWh/kW/year
-        const annualSavings = Math.round(annualUnits * tariffPerUnit);
-
-        // Calculate Investment & Payback
-        const estimatedCost = recommendedKw * 48000; // Average ₹48,000 / kW turnkey
-        let paybackYears = Math.round((estimatedCost / annualSavings) * 10) / 10;
-        if (paybackYears < 2.5) paybackYears = 2.8;
-
-        // Render Results
-        if (resCapacity) {
-            if (recommendedKw >= 1000) {
-                resCapacity.innerText = (recommendedKw / 1000).toFixed(2) + ' MW';
-            } else {
-                resCapacity.innerText = recommendedKw.toFixed(1) + ' kW';
+    function syncRateFromState() {
+        if (calcState && rateInput) {
+            const stateRate = parseFloat(calcState.value);
+            if (!isNaN(stateRate) && stateRate > 0) {
+                rateInput.value = stateRate.toFixed(1);
             }
-        }
-
-        if (resSavings) {
-            resSavings.innerText = '₹ ' + annualSavings.toLocaleString('en-IN') + ' / yr';
-        }
-
-        if (resUnits) {
-            resUnits.innerText = annualUnits.toLocaleString('en-IN') + ' kWh / yr';
-        }
-
-        if (resPayback) {
-            resPayback.innerText = paybackYears + ' Years';
-        }
-
-        if (btnQuote) {
-            btnQuote.href = `/contact/index.html?capacity=${recommendedKw}&category=${category}`;
         }
     }
 
-    // Event Listeners
-    billSlider.addEventListener('input', calculate);
-    areaSlider.addEventListener('input', calculate);
-    if (calcCategory) calcCategory.addEventListener('change', calculate);
+    function calculate() {
+        const category = calcCategory ? calcCategory.value : 'residential';
 
-    // Initial calculation
+        let rawBill = billInput ? parseFloat(billInput.value) : parseFloat(billSlider ? billSlider.value : 0);
+        let rawArea = areaInput ? parseFloat(areaInput.value) : parseFloat(areaSlider ? areaSlider.value : 0);
+        let rawRate = rateInput ? parseFloat(rateInput.value) : parseFloat(calcState ? calcState.value : 8.0);
+
+        let warning = '';
+
+        if (isNaN(rawBill) || rawBill < 0) {
+            rawBill = 0;
+            warning = 'Monthly electricity bill cannot be negative or empty.';
+        }
+        if (isNaN(rawArea) || rawArea < 0) {
+            rawArea = 0;
+            warning = 'Available rooftop area cannot be negative or empty.';
+        }
+        if (isNaN(rawRate) || rawRate <= 0) {
+            rawRate = 8.0;
+            if (!warning) warning = 'Electricity rate must be greater than ₹0/unit. Using ₹8.0/unit.';
+        }
+
+        if (calcError) {
+            if (warning) {
+                calcError.textContent = warning;
+                calcError.style.display = 'block';
+            } else {
+                calcError.style.display = 'none';
+            }
+        }
+
+        if (billValueDisplay) {
+            billValueDisplay.textContent = formatINR(rawBill);
+        }
+        if (areaValueDisplay) {
+            areaValueDisplay.textContent = Math.round(rawArea).toLocaleString('en-IN') + ' sq. ft.';
+        }
+
+        if (rawBill === 0 || rawArea < 100) {
+            resCapacity.textContent = '0.0 kW';
+            if (resMonthlyUnits) resMonthlyUnits.textContent = '0 kWh / mo';
+            if (resUnits) resUnits.textContent = '0 kWh / yr';
+            if (resCost) resCost.textContent = '₹ 0';
+            if (resMonthlySavings) resMonthlySavings.textContent = '₹ 0 / mo';
+            if (resSavings) resSavings.textContent = '₹ 0 / yr';
+            if (resPayback) resPayback.textContent = '—';
+            if (resSubsidy) resSubsidy.textContent = '₹ 0';
+            return;
+        }
+
+        // Core Engineering Assumptions:
+        // 1 kWp generates ~1,400 kWh/year (~116.67 kWh/month) in North/West India
+        // 1 kWp requires ~100 sq. ft. of shade-free roof area
+        const monthlyUnitsConsumed = rawBill / rawRate;
+        let recommendedKw = monthlyUnitsConsumed / (1400 / 12);
+        const maxKwByArea = rawArea / 100;
+
+        if (recommendedKw > maxKwByArea) {
+            recommendedKw = maxKwByArea;
+        }
+        recommendedKw = Math.max(1.0, Math.round(recommendedKw * 10) / 10);
+
+        const annualUnits = Math.round(recommendedKw * 1400);
+        const monthlyUnitsGen = Math.round(annualUnits / 12);
+
+        // Tiered Turnkey EPC Benchmark Cost (₹/kW)
+        let costPerKw = 55000;
+        if (recommendedKw > 100) costPerKw = 40000;
+        else if (recommendedKw > 10) costPerKw = 45000;
+        else if (recommendedKw > 3) costPerKw = 50000;
+
+        const estimatedCost = Math.round(recommendedKw * costPerKw);
+
+        // PM Surya Ghar Subsidy Rules
+        let subsidy = 0;
+        if (category === 'residential') {
+            if (recommendedKw <= 2) {
+                subsidy = Math.round(recommendedKw * 30000);
+            } else if (recommendedKw <= 3) {
+                subsidy = Math.round(60000 + (recommendedKw - 2) * 18000);
+            } else {
+                subsidy = 78000;
+            }
+        } else if (category === 'rwa') {
+            subsidy = Math.round(Math.min(recommendedKw, 500) * 18000);
+        }
+
+        const netCost = Math.max(0, estimatedCost - subsidy);
+        const annualSavings = Math.round(annualUnits * rawRate);
+        const monthlySavings = Math.round(annualSavings / 12);
+        const paybackYears = annualSavings > 0 ? (netCost / annualSavings).toFixed(1) : '—';
+
+        // Render Output
+        if (recommendedKw >= 1000) {
+            resCapacity.textContent = (recommendedKw / 1000).toFixed(2) + ' MW';
+        } else {
+            resCapacity.textContent = recommendedKw.toFixed(1) + ' kW';
+        }
+
+        if (resMonthlyUnits) resMonthlyUnits.textContent = monthlyUnitsGen.toLocaleString('en-IN') + ' kWh / mo';
+        if (resUnits) resUnits.textContent = annualUnits.toLocaleString('en-IN') + ' kWh / yr';
+        if (resCost) resCost.textContent = formatCost(estimatedCost);
+        if (resMonthlySavings) resMonthlySavings.textContent = formatINR(monthlySavings) + ' / mo';
+        if (resSavings) resSavings.textContent = formatINR(annualSavings) + ' / yr';
+        if (resPayback) resPayback.textContent = paybackYears === '—' ? '—' : paybackYears + ' Years';
+        if (resSubsidy) {
+            resSubsidy.textContent = subsidy > 0 ? formatINR(subsidy) : '₹ 0 (40% AD Tax Benefit)';
+        }
+
+        if (btnQuote) {
+            btnQuote.href = `/contact/index.html?capacity=${encodeURIComponent(recommendedKw)}&category=${encodeURIComponent(category)}`;
+        }
+    }
+
+    // Sync sliders and numeric inputs
+    if (billSlider && billInput) {
+        billSlider.addEventListener('input', () => {
+            billInput.value = billSlider.value;
+            calculate();
+        });
+        billInput.addEventListener('input', () => {
+            const v = parseFloat(billInput.value);
+            if (!isNaN(v) && v >= 0) {
+                billSlider.value = Math.min(parseFloat(billSlider.max), Math.max(parseFloat(billSlider.min), v));
+            }
+            calculate();
+        });
+    } else if (billSlider) {
+        billSlider.addEventListener('input', calculate);
+    }
+
+    if (areaSlider && areaInput) {
+        areaSlider.addEventListener('input', () => {
+            areaInput.value = areaSlider.value;
+            calculate();
+        });
+        areaInput.addEventListener('input', () => {
+            const v = parseFloat(areaInput.value);
+            if (!isNaN(v) && v >= 0) {
+                areaSlider.value = Math.min(parseFloat(areaSlider.max), Math.max(parseFloat(areaSlider.min), v));
+            }
+            calculate();
+        });
+    } else if (areaSlider) {
+        areaSlider.addEventListener('input', calculate);
+    }
+
+    if (calcState) {
+        calcState.addEventListener('change', () => {
+            syncRateFromState();
+            calculate();
+        });
+    }
+    if (rateInput) {
+        rateInput.addEventListener('input', calculate);
+    }
+    if (calcCategory) {
+        calcCategory.addEventListener('change', calculate);
+    }
+
+    syncRateFromState();
     calculate();
 }
 
 /**
- * Cookie Consent Manager (Accept, Decline, Customize)
+ * Cookie Consent Manager
  */
 function initCookieConsent() {
     const consent = localStorage.getItem('jsn_cookie_consent');
-    if (consent) return; // User already made a choice
+    if (consent) return;
 
     const bannerHtml = `
         <div id="cookieConsentBanner" class="cookie-consent-banner">
-            <div class="cookie-consent-title">
-                🍪 Privacy & Cookie Preferences
-            </div>
+            <div class="cookie-consent-title">Privacy &amp; Cookie Notice</div>
             <div class="cookie-consent-text">
-                We use necessary cookies and anonymous visitor telemetry to optimize performance and solar ROI calculations for JSN Renewable Energy Private Limited.
+                JSN Renewable Energy uses essential session cookies and anonymized server-side analytics to improve website performance and solar sizing tools.
             </div>
             <div class="cookie-actions">
-                <button id="btnAcceptCookies" class="btn-cookie-accept">Accept All</button>
-                <button id="btnDeclineCookies" class="btn-cookie-decline">Decline</button>
-                <button id="btnCustomCookies" class="btn-cookie-custom">Customize</button>
-            </div>
-        </div>
-
-        <div id="cookieModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:10000; padding:40px 20px;">
-            <div style="background:#041B40; color:#fff; max-width:500px; margin:40px auto; padding:28px; border-radius:12px; border:1px solid rgba(255,105,0,0.3);">
-                <h3 style="color:#fff; margin-top:0; margin-bottom:12px;">Cookie Preferences</h3>
-                <p style="font-size:13px; color:#CBD5E1; margin-bottom:20px;">Manage cookie preferences for JSN Renewable Energy:</p>
-
-                <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
-                    <div>
-                        <strong>Essential / Necessary</strong>
-                        <div style="font-size:11px; color:#94A3B8;">Required for core website security & routing.</div>
-                    </div>
-                    <input type="checkbox" checked disabled style="accent-color:#FF6900;">
-                </div>
-
-                <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
-                    <div>
-                        <strong>Visitor IP Telemetry</strong>
-                        <div style="font-size:11px; color:#94A3B8;">Anonymized location & lead security logging.</div>
-                    </div>
-                    <input type="checkbox" id="chkAnalytics" checked style="accent-color:#FF6900;">
-                </div>
-
-                <div style="margin-top:24px; display:flex; justify-content:flex-end; gap:10px;">
-                    <button id="btnSaveCookiePrefs" class="btn-cookie-accept">Save My Preferences</button>
-                </div>
+                <button id="btnAcceptCookies" class="btn-cookie-accept">Accept</button>
+                <button id="btnDeclineCookies" class="btn-cookie-decline">Essential Only</button>
             </div>
         </div>
     `;
 
     document.body.insertAdjacentHTML('beforeend', bannerHtml);
-
     const banner = document.getElementById('cookieConsentBanner');
-    const modal = document.getElementById('cookieModal');
-
     setTimeout(() => {
         if (banner) banner.style.display = 'block';
     }, 1000);
 
     document.getElementById('btnAcceptCookies')?.addEventListener('click', () => {
         localStorage.setItem('jsn_cookie_consent', JSON.stringify({ choice: 'accepted', date: new Date().toISOString() }));
-        banner.style.display = 'none';
+        if (banner) banner.style.display = 'none';
     });
 
     document.getElementById('btnDeclineCookies')?.addEventListener('click', () => {
-        localStorage.setItem('jsn_cookie_consent', JSON.stringify({ choice: 'declined', date: new Date().toISOString() }));
-        banner.style.display = 'none';
-    });
-
-    document.getElementById('btnCustomCookies')?.addEventListener('click', () => {
-        modal.style.display = 'block';
-    });
-
-    document.getElementById('btnSaveCookiePrefs')?.addEventListener('click', () => {
-        const isAnalytics = document.getElementById('chkAnalytics').checked;
-        localStorage.setItem('jsn_cookie_consent', JSON.stringify({ choice: 'custom', analytics: isAnalytics, date: new Date().toISOString() }));
-        modal.style.display = 'none';
-        banner.style.display = 'none';
+        localStorage.setItem('jsn_cookie_consent', JSON.stringify({ choice: 'essential', date: new Date().toISOString() }));
+        if (banner) banner.style.display = 'none';
     });
 }
 
 /**
- * Visitor IP Tracker & Telemetry Engine
+ * Lightweight Server-Side Visitor Analytics Ping
+ * IP address and user-agent are captured strictly on the server.
  */
-function trackVisitorIP() {
-    fetch('https://api.ipify.org?format=json')
-        .then(res => res.json())
-        .then(data => {
-            const visitorIP = data.ip;
-            const logEntry = {
-                ip: visitorIP,
-                page: window.location.pathname,
-                userAgent: navigator.userAgent,
-                timestamp: new Date().toISOString()
-            };
-
-            let logs = JSON.parse(localStorage.getItem('jsn_visitor_logs') || '[]');
-            logs.unshift(logEntry);
-            if (logs.length > 50) logs = logs.slice(0, 50);
-            localStorage.setItem('jsn_visitor_logs', JSON.stringify(logs));
-
-            fetch('/ip-logger.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(logEntry)
-            }).catch(() => {});
+function trackVisitorSession() {
+    const endpoint = window.location.pathname.split('/').length > 2 ? '../ip-logger.php' : 'ip-logger.php';
+    fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            page: window.location.pathname || '/',
+            referrer: document.referrer || ''
         })
-        .catch(() => {});
+    }).catch(() => {});
 }

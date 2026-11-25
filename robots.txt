@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /jsn-admin-portal
+Disallow: /install.php
+Disallow: /config.php
+Disallow: /functions.php
 
 Sitemap: https://jsn-renewable-pearl.vercel.app/sitemap.xml
